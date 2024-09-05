@@ -166,6 +166,17 @@ import '../Styles/global.css';
         </div>
     </main>
     <script is:inline>
+            window.onload = function() {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        body_dark();  // Aplicar tema oscuro
+        isOriginalColor = false;  // Asegurarse de que el botón funcione correctamente
+    } else {
+        body_light();  // Aplicar tema claro
+        isOriginalColor = true;  // Asegurarse de que el botón funcione correctamente
+    }
+}
 
 
 function body_dark(){
@@ -194,6 +205,7 @@ let isOriginalColor = true;
             const mobileMenu = document.getElementById('hamburger_menu')
 
             if (isOriginalColor) {
+                localStorage.setItem("theme", "dark");
                 const current_mobile_light = Array.from(document.getElementsByClassName('current_mobile_light'));
                 background.style.backgroundColor = '#28155e';
                 background.style.backgroundImage = 'radial-gradient(60% 120% at 50% 50%, hsla(0, 96.5%, 44.9%, 0) 0%, rgba(0, 0, 0, 0.5) 100%)';
@@ -230,6 +242,8 @@ let isOriginalColor = true;
                 body_dark()
 
             } else {
+                localStorage.setItem("theme", "light");
+
                 const current_mobile_dark= Array.from(document.getElementsByClassName('current_mobile_dark'));
                 background.style.backgroundColor = '#e7e7e7';
                 background.style.backgroundImage = 'radial-gradient(60% 120%, rgba(255, 255, 255, 0) 0%, rgba(244, 181, 225, 0.5) 100%)';

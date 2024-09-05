@@ -221,6 +221,17 @@ import "../Styles/global.css";
   </main>
 
   <script is:inline>
+        window.onload = function() {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        body_dark();  // Aplicar tema oscuro
+        isOriginalColor = false;  // Asegurarse de que el botón funcione correctamente
+    } else {
+        body_light();  // Aplicar tema claro
+        isOriginalColor = true;  // Asegurarse de que el botón funcione correctamente
+    }
+}
     function body_dark() {}
 
     function body_light() {}
