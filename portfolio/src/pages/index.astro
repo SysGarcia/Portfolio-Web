@@ -1,0 +1,630 @@
+---
+// File: src/pages/index.astro
+import '../Styles/global.css';
+import { Image } from 'astro:assets';
+import imagen_isaac from '../ASSETS/Isaac_Image.jpg';
+import Timeline from '../components/TimeLine.astro';
+
+const timelineItems = [
+  {
+    dateRange: '5 Junio 2024 - 30 Junio 2024',
+    title: 'Mantenimiento de Piscinas',
+    link: 'https://aquavic.es/',
+    description: 'Mantenimiento básico de piscinas: limpieza, control de cloro y pH, y pequeñas reparaciones. Servicio en piscinas distribuidas en Madrid, en particular para 5 piscinas situadas en Griñón, Humanes y Fuenlabrada.',
+	button_show: true,
+	work: true
+	},
+  {
+    dateRange: '1 Julio 2024 - 30 Junio 2024',
+    title: 'Conserjería en una finca',
+    description: 'All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.',
+	work: true
+  },
+  {
+    dateRange: 'April 2022',
+    title: 'E-Commerce UI code in Tailwind CSS',
+    description: 'Get started with dozens of web components and interactive elements built on top of Tailwind CSS.',
+	study: true
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Recepción 🚀</title>
+	<style>
+        :root {
+            color-scheme: only light;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #moon-icon {
+            transition: fill 0.3s ease, box-shadow 0.3s ease, stroke 0.3s ease;
+            padding: 2px;
+            /* Añade un poco de espacio para el contorno */
+            border-radius: 50%;
+            /* Opcional: bordes redondeados para el ícono */
+        }
+
+        #moon-icon.light_mode_moon:hover {
+            fill: #4f4dc7;
+            stroke: #4f4dc7;
+            box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.3);
+            /* Ajusta el color y la opacidad del box-shadow */
+        }
+
+        .dark_mode_moon {
+            fill: #fff;
+            stroke: #fff;
+        }
+
+        #moon-icon.dark_mode_moon:hover {
+            fill: rgb(234, 201, 70);
+            stroke: rgb(234, 201, 70);
+            box-shadow: 0 0 10px 4px rgba(255, 255, 255, 0.479);
+            /* Ajusta el color y la opacidad del box-shadow */
+        }
+
+        .light_mode_ul_header:hover {
+            color: rgb(72, 25, 202);
+        }
+
+        .dark_mode_ul_header:hover {
+            color: rgb(234, 201, 70);
+        }
+
+        .current_light {
+            color: #4819ca;
+        }
+
+        .current_mobile_light{
+            color: #8c73e3;
+        }
+
+        .current_dark {
+            color: rgb(234, 201, 70);
+        }
+
+        .current_mobile_dark{
+            color: rgb(234, 201, 70);
+        }
+
+        .current_light:hover {
+            color: #1815cc;
+        }
+
+        .current_dark:hover {
+            color: rgb(231, 168, 51);
+        }
+
+        .light_hamburger {
+            stroke: black;
+        }
+
+        .dark_hamburger {
+            stroke: white;
+        }
+    </style>
+
+    <style>
+        .icon-bar {
+            display: flex;
+            gap: 0.4rem;
+            /* Espaciado entre los iconos */
+            padding-right: 1rem;
+            /* Opcional: añade un poco de espacio a la derecha */
+        }
+
+        .icon-container {
+            position: relative;
+            width: 31px;
+            height: 31px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-icon,
+        .external-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.3s ease;
+        }
+
+        .external-icon {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .icon-container:hover .main-icon {
+            opacity: 0;
+        }
+
+        .icon-container:hover .external-icon {
+            opacity: 1;
+        }
+
+        .light_inside_title_text {
+            color: #4819ca;
+        }
+
+        .underline_light{
+            text-decoration-color: #f1c943;
+        }
+
+        .underline_dark{
+            text-decoration-color: #724ef4;
+        }
+
+        .dark_inside_title_text {
+            color: #ffd350;
+        }
+
+        .external_light, .paperclip_light {
+            stroke: #0d0d0d;
+        }
+
+        .external_dark, .paperclip_dark {
+            stroke:rgb(255, 255, 255);
+        }
+
+        .github_light, .linkedin_light{
+            fill:  #0d0d0d;
+        }
+
+        .github_dark, .linkedin_dark{
+            fill: #fff;
+        }
+
+    </style>
+
+</head>
+
+<body class="font-CoolVetica font-light">
+    <div id="background"
+        class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform bg-[#e7e7e7]" style="background-image:radial-gradient(60% 120%,  rgba(255, 255, 255, 0) 0%, rgba(244, 181, 225, 0.5) 100%);"></div>
+    </div>
+    <div id="dotted-background"
+        class="dotted-bg fixed top-0 z-[-2] h-screen w-screen rotate-180 transform dark:bg-[radial-gradient(#0c172d 1px,transparent 1px)] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%, #0d0d0d_70%,transparent_100%)]">
+    </div>
+
+    <header id="header" class="w-full sm:px-6" >
+        <div class="mx-auto" style="max-width: 54rem;">
+            <nav class="flex items-center justify-between py-4 sm:py-6 px-4">
+                <!-- Luna a la izquierda -->
+                <button onclick="ChangeColors()" class="flex-shrink-0">
+                    <svg class="w-8 h-8 light_mode_moon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" id="moon-icon" stroke="currentColor" stroke-width="27.648000000000003">
+                        <path
+                            d="M240.448 240.448a384 384 0 1 0 559.424 525.696 448 448 0 0 1-542.016-542.08 390.592 390.592 0 0 0-17.408 16.384zm181.056 362.048a384 384 0 0 0 525.632 16.384A448 448 0 1 1 405.056 76.8a384 384 0 0 0 16.448 525.696z">
+                        </path>
+                    </svg>
+                </button>
+
+                <!-- Menú a la derecha -->
+                <ul class="hidden sm:flex sm:flex-row sm:gap-x-8 lg:gap-x-14 text-[#0d0d0d] items-center" id="nav">
+                    <li><a href="index.html" id="aboutme"
+                            class=" transition-colors light_mode_ul_header current_light">Sobre mí</a></li>
+                    <li><a href="Articulos.html" id="articles"
+                            class="transition-colors light_mode_ul_header">Artículos</a></li>
+                    <li><a href="Contacto.html" id="contact" class="transition-colors light_mode_ul_header">Contacto</a>
+                    </li>
+                </ul>
+
+                <!-- Menú hamburguesa para móviles -->
+                <button class="sm:hidden" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6 light_hamburger" stroke="currentColor" viewBox="0 0 24 24" id="hamburger_menu"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </nav>
+
+            <!-- Menú móvil -->
+            <div id="mobileMenu" class="hidden sm:hidden">
+                <ul class="flex flex-col text-[#e7e7e7] bg-[#0000009d] absolute z-10 w-full backdrop-blur">
+                    <li><a href="index.astro"
+                            class="block light_mode_ul_header transition-colors py-4 text-center border-b current_mobile_light" id="aboutme_mobile">Sobre
+                            mí</a></li>
+                    <li><a href="Articulos.astro"
+                            class="block light_mode_ul_header transition-colors py-4 text-center border-b" id="articles_mobile">Artículos</a>
+                    </li>
+                    <li><a href="Contacto.astro"
+                            class="block light_mode_ul_header transition-colors py-4 text-center" id="contact_mobile">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <script is:inline>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+    </script>
+    <main class="max-w-4xl m-auto mt-16" tabindex="-1">
+        <div class="ml-6 mr-6">
+            <h1 class="text-5xl sm:text-6xl text-[#0d0d0d] animate-bounce animate-once animate-ease-in-out animate-fill-both flex flex-row gap-x-3 items-center"
+                id="title_name">
+                <Image src={imagen_isaac} class="w-20 rounded-full border-2 border-[#4819ca]" alt="Foto de perfil de Isaac García" loading="eager"/> Isaac García
+            </h1>
+            <span
+                class="inline-flex items-center justify-center px-2 py-1 bg-[#4819ca] rounded text-sm text-stone-100 align-middle max-w-52"
+                style="line-height: 1.2">
+                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <path
+                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z">
+                    </path>
+                </svg>
+                <span class="ml-1">¡Disponible para trabajar!</span>
+            </span>
+            <div class="mt-2">
+                <p class="text-2xl" id="title_text"><span class="light_inside_title_text" id="inside_title_text">Técnico
+                        en Administración de sistemas
+                        informáticos
+                        en red</span>. De Madrid, España. Especializado en crear experiencias <span
+                        class="underline decoration-wavy decoration-2 underline_light" id="unique_underline">únicas</span>.
+                </p>
+                <div class="icon-bar mt-1 flex">
+                    <div class="icon-container">
+                        <button onclick="window.open('https://github.com/Wolfuliam','_blank');" type="button">
+                            <svg class="main-icon github_light" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg" id="githubicon"
+                                fill="CurrentColor">
+
+                                <path
+                                    d="M1664 896q0 251-146.5 451.5t-378.5 277.5q-27 5-39.5-7t-12.5-30v-211q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 89t.5 54q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z" />
+                            </svg>
+                            <svg 
+                                 class="external-icon animate-wiggle-more animate-infinite animate-ease-in-out animate-normal animate-fill-both"
+                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="external_light" id="first_external"
+                                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
+                                    stroke="#000000" stroke-width="1.56" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="icon-container">
+                        <button
+                            onclick="window.open('https://www.linkedin.com/in/isaac-garc%C3%ADa-dur%C3%A1n-379121310/','_blank');"
+                            type="button">
+                            <svg class="main-icon w-5 h-5 linkedin_light" fill="#000000" version="1.1" id="linkedinicon"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 48 48" xml:space="preserve">
+                                <style type="text/css">
+                                    .st0 {
+                                        fill: none;
+                                    }
+                                </style>
+                                <g>
+                                    <path class="st0" d="M0,0h48v48H0V0z" />
+                                    <path
+                                        d="M34,4H14C8.5,4,4,8.5,4,14v20c0,5.5,4.5,10,10,10h20c5.5,0,10-4.5,10-10V14C44,8.5,39.5,4,34,4z M17,35h-4V20h4V35z M15,17    c-1.1,0-2-0.9-2-2c0-1.1,0.9-2,2-2s2,0.9,2,2C17,16.1,16.1,17,15,17z M35,35h-4v-7.5c0-2.5-1-3.6-3-3.6L24,24v11h-4V20l8-0.2    c3.4,0,7,2,7,7.6V35z" />
+                                </g>
+                            </svg>
+                            <svg
+                                class=" external-icon animate-wiggle-more animate-infinite animate-ease-in-out animate-normal animate-fill-both w-5 h-5"
+                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="external_light" id="second_external"
+                                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
+                                    stroke="#000000" stroke-width="1.56" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="icon-container">
+                        <button onclick="window.open('#','_blank');" type="button">
+                            <svg class="main-icon paperclip_light" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" id="paperclipicon"
+                                aria-labelledby="paperclipIconTitle" stroke="#000000" stroke-width="1.5"
+                                stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title id="paperclipIconTitle">CV</title>
+                                    <path
+                                        d="M7.93517339,13.7795989 L15.1617306,6.55304173 C16.03921,5.67631227 17.4656766,5.67631227 18.343156,6.55304173 C19.2206355,7.43052116 19.2206355,8.85773771 18.343156,9.73521714 L8.40091248,19.5477137 C6.93619681,21.0124294 4.56325242,21.0124294 3.09853675,19.5477137 C1.63382108,18.083748 1.63382108,15.7093037 3.09853675,14.245338 L12.9335328,4.53783896 C14.9839848,2.48738701 18.3094068,2.48738701 20.3568588,4.53783896 C22.4088107,6.58904088 22.4088107,9.91146301 20.3583588,11.961915 L13.2390491,19.0819746">
+                                    </path>
+                                </g>
+                            </svg>
+                            <svg 
+                                class="external-icon animate-wiggle-more animate-infinite animate-ease-in-out animate-normal animate-fill-both"
+                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="external_light" id="third_external"
+                                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
+                                    stroke="#000000" stroke-width="1.56" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10" id="experience-studies">
+                <h1 class="text-4xl">Experiencia laboral y Formación.</h1>
+				<Timeline items={timelineItems} />
+            </div>
+        </div>
+    </main>
+    <script is:inline>
+		const title_name = document.getElementById('title_name');
+		const title_text = document.getElementById('title_text');
+		const unique_underline = document.getElementById('unique_underline');
+		const inside_title_text = document.getElementById('inside_title_text')
+		const first_external = document.getElementById('first_external');
+		const second_external = document.getElementById('second_external');
+		const third_external = document.getElementById('third_external');
+		const githubicon = document.getElementById('githubicon');
+		const linkedinicon = document.getElementById('linkedinicon');
+		const paperclipicon = document.getElementById('paperclipicon');
+		const experience_studies = document.getElementById('experience-studies')
+		const sidebarstudies = document.getElementById('side-bar-studies');
+		
+		function body_dark() {
+			const dots = Array.from(document.getElementsByClassName('light_dot'));
+			const timespan = Array.from(document.getElementsByClassName('light_span'));
+			const black_text = Array.from(document.getElementsByClassName('black_text'));
+			const black_text_inside = Array.from(document.getElementsByClassName('black_text_inside'));
+			const blue_links = Array.from(document.getElementsByClassName('blue_links'));
+			const suitcaseicon = Array.from(document.getElementsByClassName('suitcaseicon_light'));
+			const bookicon = Array.from(document.getElementsByClassName('bookicon_light'));
+		
+			title_name.style.color = "#e7e7e7";
+			title_text.style.color = "#e7e7e7";
+		
+			inside_title_text.classList.add("dark_inside_title_text");
+			inside_title_text.classList.remove("light_inside_title_text");
+		
+			unique_underline.classList.add("underline_dark");
+			unique_underline.classList.remove("underline_light");
+		
+			first_external.classList.add("external_dark");
+			second_external.classList.add("external_dark");
+			third_external.classList.add("external_dark");
+		
+			first_external.classList.remove("external_light");
+			second_external.classList.remove("external_light");
+			third_external.classList.remove("external_light");
+		
+			githubicon.classList.add("github_dark");
+			githubicon.classList.remove("github_light");
+		
+			linkedinicon.classList.add("linkedin_dark");
+			linkedinicon.classList.remove("linkedin_light");
+		
+			paperclipicon.classList.add("paperclip_dark");
+			paperclipicon.classList.remove("paperclip_light");
+		
+			experience_studies.style.color = "#e7e7e7";
+		
+			const dotsCopy = [...dots];
+			for (let dot of dotsCopy) {
+				dot.classList.remove("light_dot");
+				dot.classList.add("dark_dot");
+			}
+		
+			for (let time of timespan) {
+				time.classList.remove("light_span");
+				time.classList.add("dark_span");
+			}
+		
+			for (let black of black_text) {
+				black.classList.add("white_text");
+				black.classList.remove("black_text");
+			}
+		
+			for (let black_inside of black_text_inside) {
+				black_inside.classList.add("white_text_inside");
+				black_inside.classList.remove("black_text_inside");
+			}
+		
+			sidebarstudies.style.borderColor = "#fff"
+
+			for (let blue_link of blue_links) {
+				blue_link.classList.remove("blue_links");
+				blue_link.classList.add("dark_blue_links");
+			}
+
+			for (let suitcase of suitcaseicon) {
+				suitcase.classList.remove("suitcaseicon_light");
+				suitcase.classList.add("suitcaseicon_dark");
+			}
+
+			for (let book of bookicon) {
+				book.classList.remove("bookicon_light");
+				book.classList.add("bookicon_dark");
+			}
+		
+		}
+		
+		function body_light() {
+			const dots = Array.from(document.getElementsByClassName('dark_dot'));
+			const timespan = Array.from(document.getElementsByClassName('dark_span'));
+			const white_text = Array.from(document.getElementsByClassName('white_text'));
+			const white_text_inside = Array.from(document.getElementsByClassName('white_text_inside'));
+			const blue_links = Array.from(document.getElementsByClassName('dark_blue_links'));
+			const suitcaseicon = Array.from(document.getElementsByClassName('suitcaseicon_dark'));
+			const bookicon = Array.from(document.getElementsByClassName('bookicon_dark'));
+		
+			title_name.style.color = "#0d0d0d";
+			title_text.style.color = "#0d0d0d";
+		
+			inside_title_text.classList.add("light_inside_title_text");
+			inside_title_text.classList.remove("dark_inside_title_text");
+		
+			unique_underline.classList.add("underline_light");
+			unique_underline.classList.remove("underline_dark");
+		
+			first_external.classList.remove("external_dark");
+			second_external.classList.remove("external_dark");
+			third_external.classList.remove("external_dark");
+		
+			first_external.classList.add("external_light");
+			second_external.classList.add("external_light");
+			third_external.classList.add("external_light");
+		
+			githubicon.classList.remove("github_dark");
+			githubicon.classList.add("github_light");
+		
+			linkedinicon.classList.remove("linkedin_dark");
+			linkedinicon.classList.add("linkedin_light");
+		
+			paperclipicon.classList.add("paperclip_light");
+			paperclipicon.classList.remove("paperclip_dark");
+		
+			experience_studies.style.color = "#0d0d0d";
+		
+			const dotsCopy = [...dots];
+			for (let dot of dotsCopy) {
+				dot.classList.add("light_dot");
+				dot.classList.remove("dark_dot");
+			}
+		
+			for (let time of timespan) {
+				time.classList.add("light_span");
+				time.classList.remove("dark_span");
+			}
+		
+			for (let white of white_text) {
+				white.classList.add("black_text");
+				white.classList.remove("white_text");
+			}
+		
+			for (let white_inside of white_text_inside) {
+				white_inside.classList.add("black_text_inside");
+				white_inside.classList.remove("white_text_inside");
+			}
+		
+			sidebarstudies.style.borderColor = " #0d0d0d";
+		
+			for (let blue_link of blue_links) {
+				blue_link.classList.add("blue_links");
+				blue_link.classList.remove("dark_blue_links");
+			}
+
+			for (let suitcase of suitcaseicon) {
+				suitcase.classList.add("suitcaseicon_light");
+				suitcase.classList.remove("suitcaseicon_dark");
+			}
+
+			for (let book of bookicon) {
+				book.classList.add("bookicon_light");
+				book.classList.remove("bookicon_dark");
+			}
+
+		}
+		
+		let isOriginalColor = true;
+		function ChangeColors() {
+		
+			const background = document.getElementById('background');
+			const dottedbg = document.getElementById('dotted-background');
+			const moonicon = document.getElementById('moon-icon');
+			const nav = document.getElementById('nav');
+			const aboutme = document.getElementById('aboutme');
+			const articles = document.getElementById('articles');
+			const contact = document.getElementById('contact');
+		
+			const aboutme_mobile = document.getElementById('aboutme_mobile');
+			const articles_mobile = document.getElementById('articles_mobile');
+			const contact_mobile = document.getElementById('contact_mobile');
+		
+			const mobileMenu = document.getElementById('hamburger_menu')
+		
+			if (isOriginalColor) {
+				const current_mobile_light = Array.from(document.getElementsByClassName('current_mobile_light'));
+				background.style.backgroundColor = '#28155e';
+				background.style.backgroundImage = 'radial-gradient(60% 120% at 50% 50%, hsla(0, 96.5%, 44.9%, 0) 0%, rgba(0, 0, 0, 0.5) 100%)';
+				dottedbg.style.backgroundImage = 'radial-gradient(#0c172d 1px,transparent 1px)';
+		
+				moonicon.classList.add("dark_mode_moon");
+				moonicon.classList.remove("light_mode_moon");
+				nav.style.color = '#e7e7e7';
+		
+				aboutme.classList.add("current_dark");
+				articles.classList.add("dark_mode_ul_header");
+				contact.classList.add("dark_mode_ul_header");
+		
+				aboutme_mobile.classList.add("dark_mode_ul_header");
+				articles_mobile.classList.add("dark_mode_ul_header");
+				contact_mobile.classList.add("dark_mode_ul_header");
+		
+				aboutme.classList.remove("current_light");
+				articles.classList.remove("light_mode_ul_header");
+				contact.classList.remove("light_mode_ul_header");
+		
+				aboutme_mobile.classList.remove("light_mode_ul_header");
+				articles_mobile.classList.remove("light_mode_ul_header");
+				contact_mobile.classList.remove("light_mode_ul_header");
+		
+				mobileMenu.classList.add("dark_hamburger");
+				mobileMenu.classList.remove("light_hamburger");
+		
+				for (let current_mobile_l of current_mobile_light) {
+					current_mobile_l.classList.add("current_mobile_dark");
+					current_mobile_l.classList.remove("current_mobile_light");
+				}
+		
+				body_dark()
+		
+			} else {
+				const current_mobile_dark= Array.from(document.getElementsByClassName('current_mobile_dark'));
+				background.style.backgroundColor = '#e7e7e7';
+				background.style.backgroundImage = 'radial-gradient(60% 120%, rgba(255, 255, 255, 0) 0%, rgba(244, 181, 225, 0.5) 100%)';
+				dottedbg.style.backgroundImage = 'radial-gradient(#e5e7eb 1px,transparent 1px)';
+		
+				moonicon.classList.add("light_mode_moon");
+				moonicon.classList.remove("dark_mode_moon");
+				nav.style.color = '#0d0d0d';
+		
+				aboutme.classList.remove("current_dark");
+				articles.classList.remove("dark_mode_ul_header");
+				contact.classList.remove("dark_mode_ul_header");
+		
+				aboutme_mobile.classList.remove("dark_mode_ul_header");
+				articles_mobile.classList.remove("dark_mode_ul_header");
+				contact_mobile.classList.remove("dark_mode_ul_header");
+		
+				aboutme.classList.add("current_light");
+				articles.classList.add("light_mode_ul_header");
+				contact.classList.add("light_mode_ul_header");
+		
+				aboutme_mobile.classList.add("light_mode_ul_header");
+				articles_mobile.classList.add("light_mode_ul_header");
+				contact_mobile.classList.add("light_mode_ul_header");
+		
+		
+				mobileMenu.classList.remove("dark_hamburger");
+				mobileMenu.classList.add("light_hamburger");
+		
+				
+				for (let current_mobile_d of current_mobile_dark) {
+					current_mobile_d.classList.remove("current_mobile_dark");
+					current_mobile_d.classList.add("current_mobile_light");
+				}
+		
+				body_light()
+			}
+		
+			isOriginalColor = !isOriginalColor;
+		}
+	</script>
+    <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
+</body>
+</html>
