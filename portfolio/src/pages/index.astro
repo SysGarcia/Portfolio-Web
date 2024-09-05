@@ -268,21 +268,21 @@ const buttonItems = [
         stroke: white;
       }
 
-      .bg_light_bg {
-    background-color: #e7e7e7 !important;
-    background-image: radial-gradient(closest-side at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(244, 181, 225, 0.5) 100%) !important;
+      .bg_light {
+          background-color: #e7e7e7 ;
+          background-image: radial-gradient(closest-side at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(244, 181, 225, 0.5) 100%) ;
+      }
+
+      .bg_dark{
+          background-color: #28155e ;
+          background-image: radial-gradient(closest-side at 50% 50%, hsla(0, 96.5%, 44.9%, 0) 0%, rgba(0, 0, 0, 0.5) 100%) ;
 }
 
-.bg_dark_bg {
-    background-color: #28155e !important;
-    background-image: radial-gradient(closest-side at 50% 50%, hsla(0, 96.5%, 44.9%, 0) 0%, rgba(0, 0, 0, 0.5) 100%) !important;
-}
-
-      .bg_light_dotted_bg {
+      .bg_light_dotted{
         background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
       }
 
-      .bg_dark_dotted_bg {
+      .bg_dark_dotted {
         background-image: radial-gradient(#0c172d 1px, transparent 1px);
       }
     </style>
@@ -376,16 +376,17 @@ const buttonItems = [
 
   <body class="font-CoolVetica font-light">
     <div
-      id="background"
-      class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform bg_light_bg dark:bg-dark-bg"
-    >
-    </div>
-
-    <div
-      id="dotted-background"
-      class="dotted-bg fixed top-0 z-[-2] h-screen w-screen rotate-180 transform bg_light_dotted_bg dark:bg-dark-dotted-bg [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%, #0d0d0d_70%,transparent_100%)]"
-    >
-    </div>
+    id="background"
+    class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform bg_light"
+  >
+  </div>
+  
+  <div
+    id="dottedbackground"
+    class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%, #0d0d0d_70%,transparent_100%)]"
+  >
+  </div>
+  
 
     <header id="header" class="w-full sm:px-6">
       <div class="mx-auto" style="max-width: 54rem;">
@@ -397,7 +398,7 @@ const buttonItems = [
               viewBox="0 0 1024 1024"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
-              id="moon-icon"
+              id="moonicon"
               stroke="currentColor"
               stroke-width="27.648000000000003"
             >
@@ -695,7 +696,59 @@ const buttonItems = [
       const sidebarstudies = document.getElementById("side-bar-studies");
       const experience_studies = document.getElementById("experience_studies");
 
+      const background = document.getElementById("background");
+      const dottedbg = document.getElementById("dottedbackground");
+      const moonicon = document.getElementById("moonicon");
+      const nav = document.getElementById("nav");
+      const aboutme = document.getElementById("aboutme");
+      const articles = document.getElementById("articles");
+      const contact = document.getElementById("contact");
+
+      const aboutme_mobile = document.getElementById("aboutme_mobile");
+      const articles_mobile = document.getElementById("articles_mobile");
+      const contact_mobile = document.getElementById("contact_mobile");
+
+      const mobileMenu = document.getElementById("hamburger_menu");
+
       function body_dark() {
+
+        const current_mobile_light = Array.from(
+            document.getElementsByClassName("current_mobile_light")
+          );
+          background.classList.remove("bg_light");
+          background.classList.add("bg_dark");
+
+          dottedbg.classList.remove("bg_light_dotted");
+          dottedbg.classList.add("bg_dark_dotted");
+
+          moonicon.classList.add("dark_mode_moon");
+          moonicon.classList.remove("light_mode_moon");
+          nav.style.color = "#e7e7e7";
+
+          aboutme.classList.add("current_dark");
+          articles.classList.add("dark_mode_ul_header");
+          contact.classList.add("dark_mode_ul_header");
+
+          aboutme_mobile.classList.add("dark_mode_ul_header");
+          articles_mobile.classList.add("dark_mode_ul_header");
+          contact_mobile.classList.add("dark_mode_ul_header");
+
+          aboutme.classList.remove("current_light");
+          articles.classList.remove("light_mode_ul_header");
+          contact.classList.remove("light_mode_ul_header");
+
+          aboutme_mobile.classList.remove("light_mode_ul_header");
+          articles_mobile.classList.remove("light_mode_ul_header");
+          contact_mobile.classList.remove("light_mode_ul_header");
+
+          mobileMenu.classList.add("dark_hamburger");
+          mobileMenu.classList.remove("light_hamburger");
+
+          for (let current_mobile_l of current_mobile_light) {
+            current_mobile_l.classList.add("current_mobile_dark");
+            current_mobile_l.classList.remove("current_mobile_light");
+          }
+
         const dots = Array.from(document.getElementsByClassName("light_dot"));
         const timespan = Array.from(
           document.getElementsByClassName("light_span")
@@ -784,6 +837,44 @@ const buttonItems = [
       }
 
       function body_light() {
+
+        const current_mobile_dark = Array.from(
+            document.getElementsByClassName("current_mobile_dark")
+          );
+          background.classList.remove("bg_dark");
+          background.classList.add("bg_light");
+
+          dottedbg.classList.remove("bg_dark_dotted");
+          dottedbg.classList.add("bg_light_dotted");
+
+          moonicon.classList.add("light_mode_moon");
+          moonicon.classList.remove("dark_mode_moon");
+          nav.style.color = "#0d0d0d";
+
+          aboutme.classList.remove("current_dark");
+          articles.classList.remove("dark_mode_ul_header");
+          contact.classList.remove("dark_mode_ul_header");
+
+          aboutme_mobile.classList.remove("dark_mode_ul_header");
+          articles_mobile.classList.remove("dark_mode_ul_header");
+          contact_mobile.classList.remove("dark_mode_ul_header");
+
+          aboutme.classList.add("current_light");
+          articles.classList.add("light_mode_ul_header");
+          contact.classList.add("light_mode_ul_header");
+
+          aboutme_mobile.classList.add("light_mode_ul_header");
+          articles_mobile.classList.add("light_mode_ul_header");
+          contact_mobile.classList.add("light_mode_ul_header");
+
+          mobileMenu.classList.remove("dark_hamburger");
+          mobileMenu.classList.add("light_hamburger");
+
+          for (let current_mobile_d of current_mobile_dark) {
+            current_mobile_d.classList.remove("current_mobile_dark");
+            current_mobile_d.classList.add("current_mobile_light");
+          }
+
         const dots = Array.from(document.getElementsByClassName("dark_dot"));
         const timespan = Array.from(
           document.getElementsByClassName("dark_span")
@@ -885,119 +976,16 @@ const buttonItems = [
       };
 
       function ChangeColors() {
-        const background = document.getElementById("background");
-        const dottedbg = document.getElementById("dotted-background");
-        const moonicon = document.getElementById("moon-icon");
-        const nav = document.getElementById("nav");
-        const aboutme = document.getElementById("aboutme");
-        const articles = document.getElementById("articles");
-        const contact = document.getElementById("contact");
-
-        const aboutme_mobile = document.getElementById("aboutme_mobile");
-        const articles_mobile = document.getElementById("articles_mobile");
-        const contact_mobile = document.getElementById("contact_mobile");
-
-        const mobileMenu = document.getElementById("hamburger_menu");
 
         if (isOriginalColor) {
-          localStorage.setItem("theme", "dark"); // Guardar estado oscuro
-
-          if (background) {
-            background.classList.remove("bg_light_bg");
-            background.classList.add("bg_dark_bg");
-            console.log('Fondo cambiado a oscuro');
-        } else {
-            console.log("Elemento background no encontrado");
-        }
-
-          const current_mobile_light = Array.from(
-            document.getElementsByClassName("current_mobile_light")
-          );
-          background.classList.remove("bg_light_bg");
-          background.classList.add("bg_dark_bg");
-
-          dottedbg.classList.remove("bg_light_dotted_bg");
-          dottedbg.classList.add("bg_dark_dotted_bg");
-
-          moonicon.classList.add("dark_mode_moon");
-          moonicon.classList.remove("light_mode_moon");
-          nav.style.color = "#e7e7e7";
-
-          aboutme.classList.add("current_dark");
-          articles.classList.add("dark_mode_ul_header");
-          contact.classList.add("dark_mode_ul_header");
-
-          aboutme_mobile.classList.add("dark_mode_ul_header");
-          articles_mobile.classList.add("dark_mode_ul_header");
-          contact_mobile.classList.add("dark_mode_ul_header");
-
-          aboutme.classList.remove("current_light");
-          articles.classList.remove("light_mode_ul_header");
-          contact.classList.remove("light_mode_ul_header");
-
-          aboutme_mobile.classList.remove("light_mode_ul_header");
-          articles_mobile.classList.remove("light_mode_ul_header");
-          contact_mobile.classList.remove("light_mode_ul_header");
-
-          mobileMenu.classList.add("dark_hamburger");
-          mobileMenu.classList.remove("light_hamburger");
-
-          for (let current_mobile_l of current_mobile_light) {
-            current_mobile_l.classList.add("current_mobile_dark");
-            current_mobile_l.classList.remove("current_mobile_light");
-          }
 
           body_dark();
+          localStorage.setItem("theme", "dark"); // Guardar estado oscuro
+
         } else {
-          localStorage.setItem("theme", "light");
-
-          const current_mobile_dark = Array.from(
-            document.getElementsByClassName("current_mobile_dark")
-          );
-
-          if (background) {
-            background.classList.remove("bg_dark_bg");
-            background.classList.add("bg_light_bg");
-            console.log('Fondo cambiado a claro');
-        } else {
-            console.log("Elemento background no encontrado");
-        }
-        
-          background.classList.remove("bg_dark_bg");
-          background.classList.add("bg_light_bg");
-
-          dottedbg.classList.remove("bg_dark_dotted_bg");
-          dottedbg.classList.add("bg_light_dotted_bg");
-
-          moonicon.classList.add("light_mode_moon");
-          moonicon.classList.remove("dark_mode_moon");
-          nav.style.color = "#0d0d0d";
-
-          aboutme.classList.remove("current_dark");
-          articles.classList.remove("dark_mode_ul_header");
-          contact.classList.remove("dark_mode_ul_header");
-
-          aboutme_mobile.classList.remove("dark_mode_ul_header");
-          articles_mobile.classList.remove("dark_mode_ul_header");
-          contact_mobile.classList.remove("dark_mode_ul_header");
-
-          aboutme.classList.add("current_light");
-          articles.classList.add("light_mode_ul_header");
-          contact.classList.add("light_mode_ul_header");
-
-          aboutme_mobile.classList.add("light_mode_ul_header");
-          articles_mobile.classList.add("light_mode_ul_header");
-          contact_mobile.classList.add("light_mode_ul_header");
-
-          mobileMenu.classList.remove("dark_hamburger");
-          mobileMenu.classList.add("light_hamburger");
-
-          for (let current_mobile_d of current_mobile_dark) {
-            current_mobile_d.classList.remove("current_mobile_dark");
-            current_mobile_d.classList.add("current_mobile_light");
-          }
 
           body_light();
+          localStorage.setItem("theme", "light");
         }
 
         isOriginalColor = !isOriginalColor;
