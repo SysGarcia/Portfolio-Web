@@ -268,81 +268,82 @@ import "../Styles/global.css";
     };
 
     function body_dark() {
-        const current_mobile_light = Array.from(
-          document.getElementsByClassName("current_mobile_light")
-        );
-        background.style.backgroundColor = "#28155e";
-        background.style.backgroundImage =
-          "radial-gradient(60% 120% at 50% 50%, hsla(0, 96.5%, 44.9%, 0) 0%, rgba(0, 0, 0, 0.5) 100%)";
-        dottedbg.style.backgroundImage =
-          "radial-gradient(#0c172d 1px,transparent 1px)";
+        
+      const current_mobile_light = Array.from(
+            document.getElementsByClassName("current_mobile_light")
+          );
+          background.classList.remove("bg_light");
+          background.classList.add("bg_dark");
 
-        moonicon.classList.add("dark_mode_moon");
-        moonicon.classList.remove("light_mode_moon");
-        nav.style.color = "#e7e7e7";
+          dottedbg.classList.remove("bg_light_dotted");
+          dottedbg.classList.add("bg_dark_dotted");
 
-        articles.classList.add("current_dark");
-        contact.classList.add("dark_mode_ul_header");
-        aboutme.classList.add("dark_mode_ul_header");
+          moonicon.classList.add("dark_mode_moon");
+          moonicon.classList.remove("light_mode_moon");
+          nav.style.color = "#e7e7e7";
 
-        aboutme_mobile.classList.add("dark_mode_ul_header");
-        articles_mobile.classList.add("dark_mode_ul_header");
-        contact_mobile.classList.add("dark_mode_ul_header");
+          articles.classList.add("current_dark");
+          aboutme.classList.add("dark_mode_ul_header");
+          contact.classList.add("dark_mode_ul_header");
 
-        articles.classList.remove("current_light");
-        contact.classList.remove("light_mode_ul_header");
-        aboutme.classList.remove("light_mode_ul_header");
+          aboutme_mobile.classList.add("dark_mode_ul_header");
+          articles_mobile.classList.add("dark_mode_ul_header");
+          contact_mobile.classList.add("dark_mode_ul_header");
 
-        aboutme_mobile.classList.remove("light_mode_ul_header");
-        articles_mobile.classList.remove("light_mode_ul_header");
-        contact_mobile.classList.remove("light_mode_ul_header");
+          articles.classList.remove("current_light");
+          aboutme.classList.remove("light_mode_ul_header");
+          contact.classList.remove("light_mode_ul_header");
 
-        mobileMenu.classList.add("dark_hamburger");
-        mobileMenu.classList.remove("light_hamburger");
+          aboutme_mobile.classList.remove("light_mode_ul_header");
+          articles_mobile.classList.remove("light_mode_ul_header");
+          contact_mobile.classList.remove("light_mode_ul_header");
 
-        for (let current_mobile_l of current_mobile_light) {
-          current_mobile_l.classList.add("current_mobile_dark");
-          current_mobile_l.classList.remove("current_mobile_light");
-        }
+          mobileMenu.classList.add("dark_hamburger");
+          mobileMenu.classList.remove("light_hamburger");
+
+          for (let current_mobile_l of current_mobile_light) {
+            current_mobile_l.classList.add("current_mobile_dark");
+            current_mobile_l.classList.remove("current_mobile_light");
+          }
     }
 
     function body_light() {
-        const current_mobile_dark = Array.from(
-          document.getElementsByClassName("current_mobile_dark")
-        );
-        background.style.backgroundColor = "#e7e7e7";
-        background.style.backgroundImage =
-          "radial-gradient(60% 120%, rgba(255, 255, 255, 0) 0%, rgba(244, 181, 225, 0.5) 100%)";
-        dottedbg.style.backgroundImage =
-          "radial-gradient(#e5e7eb 1px,transparent 1px)";
+      const current_mobile_dark = Array.from(
+            document.getElementsByClassName("current_mobile_dark")
+          );
+          background.classList.remove("bg_dark");
+          background.classList.add("bg_light");
 
-        moonicon.classList.add("light_mode_moon");
-        moonicon.classList.remove("dark_mode_moon");
-        nav.style.color = "#0d0d0d";
+          dottedbg.classList.remove("bg_dark_dotted");
+          dottedbg.classList.add("bg_light_dotted");
 
-        articles.classList.remove("current_dark");
-        contact.classList.remove("dark_mode_ul_header");
-        aboutme.classList.remove("dark_mode_ul_header");
+          moonicon.classList.add("light_mode_moon");
+          moonicon.classList.remove("dark_mode_moon");
+          nav.style.color = "#0d0d0d";
 
-        aboutme_mobile.classList.remove("dark_mode_ul_header");
-        articles_mobile.classList.remove("dark_mode_ul_header");
-        contact_mobile.classList.remove("dark_mode_ul_header");
+          articles.classList.remove("current_dark");
+          aboutme.classList.remove("dark_mode_ul_header");
+          contact.classList.remove("dark_mode_ul_header");
 
-        articles.classList.add("current_light");
-        contact.classList.add("light_mode_ul_header");
-        aboutme.classList.add("light_mode_ul_header");
+          aboutme_mobile.classList.remove("dark_mode_ul_header");
+          articles_mobile.classList.remove("dark_mode_ul_header");
+          contact_mobile.classList.remove("dark_mode_ul_header");
 
-        aboutme_mobile.classList.add("light_mode_ul_header");
-        articles_mobile.classList.add("light_mode_ul_header");
-        contact_mobile.classList.add("light_mode_ul_header");
+          articles.classList.add("current_light");
+          aboutme.classList.add("light_mode_ul_header");
+          contact.classList.add("light_mode_ul_header");
 
-        mobileMenu.classList.remove("dark_hamburger");
-        mobileMenu.classList.add("light_hamburger");
+          aboutme_mobile.classList.add("light_mode_ul_header");
+          articles_mobile.classList.add("light_mode_ul_header");
+          contact_mobile.classList.add("light_mode_ul_header");
 
-        for (let current_mobile_d of current_mobile_dark) {
-          current_mobile_d.classList.remove("current_mobile_dark");
-          current_mobile_d.classList.add("current_mobile_light");
-        }
+          mobileMenu.classList.remove("dark_hamburger");
+          mobileMenu.classList.add("light_hamburger");
+
+          for (let current_mobile_d of current_mobile_dark) {
+            current_mobile_d.classList.remove("current_mobile_dark");
+            current_mobile_d.classList.add("current_mobile_light");
+          }
     }
 
     let isOriginalColor = true;
