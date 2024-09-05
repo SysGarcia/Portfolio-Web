@@ -56,23 +56,20 @@ const { items } = Astro.props as { items: Item[] };
   }
 
   .title-container {
-    display: inline-flex;
-    align-items: center;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
   }
 
-  .title-container svg {
-    margin-left: 0.4rem;
-    vertical-align: middle; /* Alinea el SVG verticalmente con el texto */
+  .suitcaseicon_light,
+  .bookicon_light {
+    fill: #0d0d0d;
   }
 
-  .suitcaseicon_light, .bookicon_light{
-    fill:  #0d0d0d;
-  }
-
-  .suitcaseicon_dark, .bookicon_dark{
+  .suitcaseicon_dark,
+  .bookicon_dark {
     fill: #fff;
   }
-
 </style>
 
 <ol
@@ -93,8 +90,8 @@ const { items } = Astro.props as { items: Item[] };
         <h3 class="text-lg font-normal text-gray-900 dark:text-white black_text title-container">
           {item.title}
           {item.work ? (
-            <svg 
-              class="w-5 h-5 suitcaseicon_light"
+            <svg
+              class="w-5 h-5 suitcaseicon_light inline"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -114,7 +111,26 @@ const { items } = Astro.props as { items: Item[] };
             </svg>
           ) : null}
           {item.study ? (
-            <svg viewBox="0 0 16 16" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path class="bookicon_light" d="M5 0C3.34315 0 2 1.34315 2 3V13C2 14.6569 3.34315 16 5 16H14V14H4V12H14V0H5Z" fill="#000000"></path> </g></svg>
+            <svg
+              viewBox="0 0 16 16"
+              class="w-5 h-5 inline"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <path
+                  class="bookicon_light"
+                  d="M5 0C3.34315 0 2 1.34315 2 3V13C2 14.6569 3.34315 16 5 16H14V14H4V12H14V0H5Z"
+                  fill="#000000"
+                />{" "}
+              </g>
+            </svg>
           ) : null}
         </h3>
         {item.link ? (

@@ -4,28 +4,77 @@ import '../Styles/global.css';
 import { Image } from 'astro:assets';
 import imagen_isaac from '../ASSETS/Isaac_Image.jpg';
 import Timeline from '../components/TimeLine.astro';
+import Button from '../components/button.astro';
+
+/*
+interface Item {
+  dateRange: string;
+  title: string;
+  link?: string;
+  description: string;
+  button_show?: boolean;
+  work?: boolean;
+  study?: boolean;
+}
+*/
 
 const timelineItems = [
+{
+    dateRange: '1 Julio 2024 - Actualidad',
+    title: 'Clases de Programación.',
+	link: 'https://www.tusclases.com/',
+    description: 'Clases particulares de programación, especializadas en pseudocódigo, diagramas de flujo, C/C++ y el curso de Desarrollo de Aplicaciones Multiplataforma (DAM), enfocadas en Java, Bases de Datos y lenguajes de marcas.',
+	work: true
+  },
+
+  {
+    dateRange: '08 Septiembre 2023 - Actualidad',
+    title: 'Grado en Administración de sistemas informáticos en red.',
+    link: 'https://site.educa.madrid.org/ies.jovellanos.fuenlabrada/',
+    description: 'Cursando el Grado Superior en Administración de Sistemas Informáticos en Red en la siguiente dirección:Calle Móstoles, 64, 28941 Fuenlabrada, Madrid.',
+	study: true
+	},
+
+{
+
+    dateRange: '1 Julio 2024 - 30 Junio 2024',
+    title: 'Conserjería en una finca.',
+    description: 'Vigilancia y preservación de una finca de edificios ubicada en la calle: Avenida Ocho de Marzo, 9, Fuenlabrada. Entre las principales responsabilidades se incluyen la seguridad y el control de accesos al edificio, mantenimiento general, supervisión del estado de las instalaciones, y limpieza de áreas comunes. También se realizarán tareas como el cambio de cerraduras, reparaciones menores, control de sistemas de iluminación, y monitoreo de equipos de seguridad (cámaras, alarmas).',
+	work: true
+  },
   {
     dateRange: '5 Junio 2024 - 30 Junio 2024',
-    title: 'Mantenimiento de Piscinas',
+    title: 'Mantenimiento de Piscinas.',
     link: 'https://aquavic.es/',
     description: 'Mantenimiento básico de piscinas: limpieza, control de cloro y pH, y pequeñas reparaciones. Servicio en piscinas distribuidas en Madrid, en particular para 5 piscinas situadas en Griñón, Humanes y Fuenlabrada.',
-	button_show: true,
 	work: true
 	},
-  {
-    dateRange: '1 Julio 2024 - 30 Junio 2024',
-    title: 'Conserjería en una finca',
-    description: 'All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.',
-	work: true
-  },
-  {
-    dateRange: 'April 2022',
-    title: 'E-Commerce UI code in Tailwind CSS',
-    description: 'Get started with dozens of web components and interactive elements built on top of Tailwind CSS.',
+	{
+    dateRange: '08 septiembre 2021 - 21	junio 2023',
+    title: 'Bachillerato de Ciencias y Tecnología.',
+    link: 'https://site.educa.madrid.org/ies.carpediem.fuenlabrada/',
+    description: 'Bachillerato completado en el instituto Carpe Diem ubicado en: Av. de Nuevo Versalles, 6, 28942 Fuenlabrada, Madrid ',
 	study: true
-  },
+	},
+	
+];
+
+/*
+interface Item {
+  title: string;
+  bgColor: string; // Color de fondo dinámico
+  hoverColor: string; // Color de fondo al pasar el cursor
+  TextColor: string;
+}
+*/
+
+const buttonItems = [
+	{
+		title: "Tailwind",
+		bgColor: "#333333",
+		hoverColor:"#8adbb7",
+		TextColor:"#f7f7f7",
+	}
 ];
 ---
 
@@ -331,7 +380,7 @@ const timelineItems = [
                         </button>
                     </div>
                     <div class="icon-container">
-                        <button onclick="window.open('#','_blank');" type="button">
+						<button onclick="window.open('Cv_Isaac_Garcia.pdf', '_blank');" type="button">
                             <svg class="main-icon paperclip_light" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" id="paperclipicon"
                                 aria-labelledby="paperclipIconTitle" stroke="#000000" stroke-width="1.5"
                                 stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000000">
@@ -356,9 +405,11 @@ const timelineItems = [
                     </div>
                 </div>
             </div>
-            <div class="mt-10" id="experience-studies">
+            <div class="mt-10 border-0">
                 <h1 class="text-4xl">Experiencia laboral y Formación.</h1>
 				<Timeline items={timelineItems} />
+				<h1 class="text-4xl">Tecnologías.</h1>
+				<Button items={buttonItems}></Button>
             </div>
         </div>
     </main>
@@ -373,7 +424,6 @@ const timelineItems = [
 		const githubicon = document.getElementById('githubicon');
 		const linkedinicon = document.getElementById('linkedinicon');
 		const paperclipicon = document.getElementById('paperclipicon');
-		const experience_studies = document.getElementById('experience-studies')
 		const sidebarstudies = document.getElementById('side-bar-studies');
 		
 		function body_dark() {
