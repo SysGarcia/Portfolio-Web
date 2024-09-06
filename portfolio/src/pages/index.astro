@@ -77,7 +77,6 @@ interface Item {
 const buttonItems = [
   {
     title: "HTML",
-    bgColor: "#e3cfcc",
     hoverColor: "#f7f7f7",
     TextColor: "#c9221c",
     hoverIconColorandText: "#000",
@@ -87,7 +86,6 @@ const buttonItems = [
   },
   {
     title: "CSS",
-    bgColor: "#e3cfcc",
     hoverColor: "#f7f7f7",
     TextColor: "#3563b8",
     hoverIconColorandText: "#000",
@@ -97,7 +95,6 @@ const buttonItems = [
   },
   {
     title: "JavaScript",
-    bgColor: "#e3cfcc",
     hoverColor: "#f7f7f7",
     TextColor: "#968a0f",
     hoverIconColorandText: "#000",
@@ -107,7 +104,6 @@ const buttonItems = [
   },
   {
     title: "XML",
-    bgColor: "#e3cfcc",
     hoverColor: "#f7f7f7",
     TextColor: "#2b8050",
     hoverIconColorandText: "#000",
@@ -116,7 +112,6 @@ const buttonItems = [
   },
   {
     title: "Tailwind",
-    bgColor: "#e3cfcc",
     hoverColor: "#f7f7f7",
     TextColor: "#3485a8",
     hoverIconColorandText: "#000",
@@ -126,7 +121,6 @@ const buttonItems = [
   },
   {
     title: "Python",
-    bgColor: "#e3cfcc",
     hoverColor: "#f7f7f7",
     TextColor: "#306998",
     hoverIconColorandText: "#000",
@@ -136,7 +130,6 @@ const buttonItems = [
   },
   {
     title: "Java",
-    bgColor: "#e3cfcc",
     hoverColor: "#f7f7f7",
     TextColor: "#c77620",
     hoverIconColorandText: "#000",
@@ -147,7 +140,6 @@ const buttonItems = [
 
   {
     title: "Linux",
-    bgColor: "#e3cfcc",
     hoverColor: "#f7f7f7",
     TextColor: "#000000",
     hoverIconColorandText: "#000",
@@ -158,7 +150,6 @@ const buttonItems = [
 
   {
     title: "Windows",
-    bgColor: "#e3cfcc",
     hoverColor: "#f7f7f7",
     TextColor: "#1c26b8",
     hoverIconColorandText: "#000",
@@ -169,7 +160,6 @@ const buttonItems = [
 
   {
     title: "SQL",
-    bgColor: "#e3cfcc",
     hoverColor: "#f7f7f7",
     TextColor: "#595959",
     hoverIconColorandText: "#000",
@@ -715,6 +705,8 @@ const buttonItems = [
         const current_mobile_light = Array.from(
             document.getElementsByClassName("current_mobile_light")
           );
+
+          
           background.classList.remove("bg_light");
           background.classList.add("bg_dark");
 
@@ -834,6 +826,25 @@ const buttonItems = [
           book.classList.remove("bookicon_light");
           book.classList.add("bookicon_dark");
         }
+
+        const button_light = Array.from(
+            document.getElementsByClassName("button_light")
+          );
+
+        for (let button of button_light) {
+          button.classList.remove("button_light");
+          button.classList.add("button_dark");
+        }
+
+        const decoration_light = Array.from(
+            document.getElementsByClassName("decoration-light")
+          );
+
+        for (let decoration of decoration_light) {
+          decoration.classList.remove("decoration-light");
+          decoration.classList.add("decoration-dark");
+        }
+
       }
 
       function body_light() {
@@ -959,6 +970,24 @@ const buttonItems = [
         for (let book of bookicon) {
           book.classList.add("bookicon_light");
           book.classList.remove("bookicon_dark");
+        }
+
+        const button_dark = Array.from(
+            document.getElementsByClassName("button_dark")
+          );
+
+        for (let button of button_dark) {
+          button.classList.remove("button_dark");
+          button.classList.add("button_light");
+        }
+
+        const decoration_dark = Array.from(
+            document.getElementsByClassName("decoration-dark")
+          );
+
+        for (let decoration of decoration_dark) {
+          decoration.classList.remove("decoration-dark");
+          decoration.classList.add("decoration-light");
         }
       }
 
