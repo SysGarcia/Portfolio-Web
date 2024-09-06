@@ -1,60 +1,128 @@
 ---
 interface Item {
     title: string;
-    bgColor: string; // Color de fondo dinámico
-    hoverColor: string; // Color de fondo al pasar el cursor
-    TextColor: string; // Color del texto
-    hoverIconColorandText: string; // Color del ícono al pasar el cursor
-    svgPath: string;
+    hoverColor: string;
+    TextColor: string;
+    hoverIconColorandText: string;
+    svgPath?: string;
+    img?: string;
+    category: string;
 }
 
 const { items } = Astro.props as { items: Item[] };
+
+// Agrupar ítems por categoría
+const categories = {
+    'Desarrollo web': items.filter(item => item.category === 'Desarrollo web'),
+    'Programación': items.filter(item => item.category === 'Programación'),
+    'Sistema Operativo': items.filter(item => item.category === 'Sistema Operativo'),
+    'Tecnologías': items.filter(item => item.category === 'Tecnologías'),
+};
 ---
 
 <style>
   .button {
-    @apply flex items-center px-4 py-1 rounded-full transition-colors;
-    color: var(--text-color); /* Color del texto */
-    background-color: var(--bg-color); /* Color de fondo inicial */
-    border: 2px solid rgba(0, 0, 0, 0.507);
+    @apply flex items-center transition-colors;
+    color: var(--text-color);
+    margin-top: 4px;
+    border: 2px solid #00000042;
+    border-radius: 13px;
+  }
+
+  .button_light{
+    background-color: #dadbe1;
+    background-image: radial-gradient(closest-side at 50% 50%,hsla(0, 0%, 94.9%, 0.21) 0%,rgba(191, 30, 30, 0.24) 100%);
+  }
+
+  .button_dark{
+    background-color: #ffffff8a;
+    background-image: radial-gradient(closest-side at 50% 50%,hsla(0, 0%, 100%, 0.83) 0%,rgba(114, 33, 213, 0) 100%);
   }
 
   .button:hover {
-    background-color: var(--hover-bg-color); /* Color de fondo en hover */
-    color: var(--hover-text-color); /* Color del texto en hover */
+    background-color: var(--hover-bg-color);
+    color: var(--hover-text-color);
   }
 
   .icon {
     @apply w-5 h-5 mr-2 transition-colors;
-    fill: var(--icon-color); /* Color del ícono inicial */
+    fill: var(--icon-color);
   }
 
   .button:hover .icon {
-    fill: var(--hover-icon-color); /* Color del ícono en hover */
+    fill: var(--hover-icon-color);
   }
+
+  .img {
+    @apply w-5 h-5 mr-2;
+    filter: invert(30%);
+  }
+
+  .button:hover .img {
+    filter: brightness(0%);
+  }
+
+  .container {
+    @apply flex gap-x-20 gap-y-4;
+  }
+
+  .column {
+    @apply flex flex-col;
+  }
+
+  .white_text {
+        color: #fff;
+      }
+
+      .black_text {
+        color: #0d0d0d;
+      }
+
+      .decoration-light{
+        text-decoration-color: #00000036;
+      }
+
+      .decoration-dark{
+        text-decoration-color: #ffffff45;
+      }
+
 </style>
 
-<div class="relative mt-6 flex flex-wrap justify-center gap-4">
-  {items.map(item => (
-    <button
-      class="button"
-      style={{
-        '--bg-color': item.bgColor,
-        '--hover-bg-color': item.hoverColor,
-        '--text-color': item.TextColor,
-        '--icon-color': item.TextColor,
-        '--hover-icon-color': item.hoverIconColorandText,
-        '--hover-text-color': item.hoverIconColorandText
-      }}
-    >
-      <svg
-        viewBox="0 0 128 128"
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d={item.svgPath} />
-      </svg>
-      {item.title}
-    </button>
+<div class="relative mt-6 flex flex-wrap justify-center container">
+  {Object.keys(categories).map(category => (
+    <div class="column">
+      <h2 class="text-xl font-light mb-2 gap-x-4 black_text gap-y-4 text-center underline decoration-2 decoration-light">{category}</h2>
+      {categories[category].map(item => (
+        <button
+          class="button button_light justify-center cursor-default"
+          style={{
+            '--bg-color': item.bgColor,
+            '--hover-bg-color': item.hoverColor,
+            '--text-color': item.TextColor,
+            '--icon-color': item.TextColor,
+            '--hover-icon-color': item.hoverIconColorandText,
+            '--hover-text-color': item.hoverIconColorandText
+          }}
+        >
+          {item.svgPath ? (
+            <svg
+              viewBox="0 0 128 128"
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d={item.svgPath} />
+            </svg>
+          ) : item.img ? (
+            <img
+              src={item.img}
+              alt={item.title}
+              class="img"
+              loading="lazy"
+            />
+          ) : null}
+          {item.title}
+        </button>
+      ))}
+    </div>
   ))}
 </div>
