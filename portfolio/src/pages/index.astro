@@ -1,10 +1,27 @@
 ---
+
+const projects = [
+  {
+    title: 'Bastardos',
+    imageUrl: '/src/ASSETS/bastardos_project.png',
+    githubLink: 'https://github.com/Wolfuliam/Bastardos',
+    liveLink: 'https://zxczc.vercel.app/',
+  },
+  {
+    title: 'Portfolio personal',
+    imageUrl: '/src/ASSETS/iker_project.png',
+    githubLink: 'https://github.com/Wolfuliam/iker-portfolio',
+    liveLink: '',
+  },
+  // Añade más proyectos aquí
+];
+
 // File: src/pages/index.astro
 import "../Styles/global.css";
 import { Image } from "astro:assets";
 import imagen_isaac from "../ASSETS/Isaac_Image.jpg";
 import Timeline from "../components/TimeLine.astro";
-import Button from "../components/button.astro";
+import ProjectCard from '../components/projectcard.astro';
 
 /*
 interface Item {
@@ -275,6 +292,27 @@ interface Item {
       .black_text {
         color: #0d0d0d;
       }
+
+      .workicon_dark{
+        stroke: none;
+        fill: rgb(255, 255, 255);
+      }
+
+      .workicon_light{
+        stroke: none;
+        fill: #0d0d0d;
+      }
+
+      .projectsicon_dark{
+        stroke: rgb(255, 255, 255);
+      }
+
+      .projectsicon_light{
+        stroke: #0d0d0d;
+      }
+
+
+
     </style>
 
     <style>
@@ -682,11 +720,26 @@ interface Item {
           </div>
         </div>
         <div class="mt-10 border-0">
-          <h1 class="text-4xl" id="experience_studies">
+          <h1 class="text-4xl flex flex-row items-center gap-2" id="experience_studies">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" id="workicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m6.314 18.022 5 4.707a1 1 0 0 0 1.372 0l5-4.707a1 1 0 0 0 .28-.985L15.091 6.212 17.8 2.6A1 1 0 0 0 17 1H7a1 1 0 0 0-.8 1.6l2.709 3.612-2.875 10.825a1 1 0 0 0 .28.985zM15 3l-1.5 2h-3L9 3zm-4.231 4h2.462l2.649 9.975L12 20.627l-3.88-3.652z"/></svg>
+
             Experiencia laboral y Formación.
           </h1>
           <Timeline items={timelineItems} />
-          <h1 class="text-4xl black_text">Proyectos.</h1>
+          <h1 class="text-4xl black_text flex flex-row items-center gap-2"><svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="projectsicon" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.5 5H9a2 2 0 0 0-2 2v2c0 1-.6 3-3 3 1 0 3 .6 3 3v2a2 2 0 0 0 2 2h.5m5-14h.5a2 2 0 0 1 2 2v2c0 1 .6 3 3 3-1 0-3 .6-3 3v2a2 2 0 0 1-2 2h-.5"></path></g></svg>Proyectos.</h1>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <ProjectCard 
+                title={project.title}
+                imageUrl={project.imageUrl}
+                githubLink={project.githubLink}
+                liveLink={project.liveLink}
+              />
+            ))}
+          </div>
+
+          <h1 class="text-4xl black_text"></h1>
           
         </div>
       </div>
@@ -702,6 +755,10 @@ interface Item {
       const githubicon = document.getElementById("githubicon");
       const linkedinicon = document.getElementById("linkedinicon");
       const paperclipicon = document.getElementById("paperclipicon");
+
+      const workicon = document.getElementById("workicon");
+      const projectsicon = document.getElementById("projectsicon");
+
       const sidebarstudies = document.getElementById("side-bar-studies");
       const experience_studies = document.getElementById("experience_studies");
 
@@ -803,6 +860,12 @@ interface Item {
 
         paperclipicon.classList.add("paperclip_dark");
         paperclipicon.classList.remove("paperclip_light");
+
+        workicon.classList.add("workicon_dark");
+        workicon.classList.remove("workicon_light");
+        
+        projectsicon.classList.add("projectsicon_dark");
+        projectsicon.classList.remove("projectsicon_light");
 
         experience_studies.style.color = "#e7e7e7";
 
@@ -946,6 +1009,12 @@ interface Item {
 
         paperclipicon.classList.add("paperclip_light");
         paperclipicon.classList.remove("paperclip_dark");
+
+        workicon.classList.remove("workicon_dark");
+        workicon.classList.add("workicon_light");
+        
+        projectsicon.classList.remove("projectsicon_dark");
+        projectsicon.classList.add("projectsicon_light");
 
         experience_studies.style.color = "#0d0d0d";
 
