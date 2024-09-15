@@ -1,28 +1,14 @@
 ---
 // File: src/pages/index.astro
 
-import bastardosImage from '../ASSETS/Bastardos_Image.jpg';
-import ikerPortfolioImage from '../ASSETS/Iker_Image.jpg';
-
-const projects = [
-  {
-    title: 'Bastardos',
-    imageUrl: bastardosImage,
-    githubLink: 'https://github.com/Wolfuliam/Bastardos',
-    liveLink: 'https://zxczc.vercel.app/',
-  },
-  {
-    title: 'Portfolio personal',
-    imageUrl: ikerPortfolioImage,
-    githubLink: 'https://github.com/Wolfuliam/iker-portfolio',
-    liveLink: '',
-  },
-
-];
-
 import "../Styles/global.css";
+
+import bastardosImage from '../../public/ASSETS/Bastardos_Image.jpg';
+import ikerPortfolioImage from '../../public/ASSETS/Iker_Image.jpg';
+import imagen_isaac from "../../public/ASSETS/Isaac_Image.jpg";
+
 import { Image } from "astro:assets";
-import imagen_isaac from "../ASSETS/Isaac_Image.jpg";
+
 import Timeline from "../components/TimeLine.astro";
 import ProjectCard from '../components/projectcard.astro';
 
@@ -93,6 +79,23 @@ interface Item {
     img?: string;
 }
 */
+
+const projects = [
+  {
+    title: 'Bastardos',
+    imageUrl: bastardosImage,
+    githubLink: 'https://github.com/Wolfuliam/Bastardos',
+    liveLink: 'https://zxczc.vercel.app/',
+  },
+  {
+    title: 'Portfolio personal',
+    imageUrl: ikerPortfolioImage,
+    githubLink: 'https://github.com/Wolfuliam/iker-portfolio',
+    liveLink: '',
+  },
+
+];
+
 ---
 
 <html lang="en">
