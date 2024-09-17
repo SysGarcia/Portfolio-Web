@@ -13,6 +13,43 @@ import { Image } from "astro:assets";
 import Timeline from "../components/TimeLine.astro";
 import ProjectCard from "../components/projectcard.astro";
 import Footer from "../components/footer.astro";
+import Skills from '../components/skills.astro';
+
+const technologies = [
+  {
+    name: 'Python',
+    description: 'Python es uno de mis lenguajes de programación principales. He trabajado en varios proyectos, incluyendo un Convertidor de Pistas de Spotify, una Aplicación de Radio y un Rastreador de Gastos Mensuales.',
+  },
+  {
+    name: 'Java',
+    description: 'Java es otro lenguaje clave que he utilizado en proyectos como la construcción de aplicaciones empresariales y el desarrollo de aplicaciones para Android.',
+  },
+  {
+    name: 'Astro',
+    description: 'Astro es un framework moderno que he utilizado para crear sitios web estáticos rápidos y optimizados.',
+  },
+  {
+    name: 'Tailwind',
+    description: 'Tailwind CSS ha sido fundamental para diseñar interfaces de usuario responsivas y visualmente atractivas.',
+  },
+  {
+    name: 'HTML',
+    description: 'HTML es la base del desarrollo web, y lo he utilizado extensamente para construir y estructurar páginas web.',
+  },
+  {
+    name: 'CSS',
+    description: 'CSS ha sido crucial para estilizar y diseñar los aspectos visuales de los proyectos web.',
+  },
+  {
+    name: 'JS',
+    description: 'JavaScript es esencial para añadir interactividad y características dinámicas a los sitios web.',
+  },
+  {
+    name: 'PHP',
+    description: 'PHP se ha utilizado en la programación del lado del servidor para desarrollar páginas y aplicaciones web dinámicas.',
+  },
+];
+
 
 /*
 interface Item {
@@ -795,65 +832,7 @@ const projects = [
       </h1> 
       
       <canvas id="myChart" width="200" height="105"></canvas>
-      <ul class="flex flex-col space-y-4 white_text">
-        <li class="flex flex-col items-start">
-            <div class="flex items-center">
-                <img src="/ASSETS/bullet-star.png" class="w-5 h-5" alt="Imagen de Python" />
-                <h1 class="ml-2 text-xl">Python</h1>
-            </div>
-            <p class="mt-2">Python is one of my primary programming languages. I have worked on various projects, including a Spotify Track Converter, a Radio App, and a Monthly Spending Tracker.</p>
-        </li>
-        <li class="flex flex-col items-start">
-            <div class="flex items-center">
-                <img src="/ASSETS/bullet-star.png" class="w-5 h-5" alt="Imagen de Java" />
-                <h1 class="ml-2 text-xl">Java</h1>
-            </div>
-            <p class="mt-2">Java is another key language I've used in projects such as building enterprise applications and developing Android apps.</p>
-        </li>
-        <li class="flex flex-col items-start">
-            <div class="flex items-center">
-                <img src="/ASSETS/bullet-star.png" class="w-5 h-5" alt="Imagen de Astro" />
-                <h1 class="ml-2 text-xl">Astro</h1>
-            </div>
-            <p class="mt-2">Astro is a modern framework I've utilized for creating fast and optimized static websites.</p>
-        </li>
-        <li class="flex flex-col items-start">
-            <div class="flex items-center">
-                <img src="/ASSETS/bullet-star.png" class="w-5 h-5" alt="Imagen de Tailwind" />
-                <h1 class="ml-2 text-xl">Tailwind</h1>
-            </div>
-            <p class="mt-2">Tailwind CSS has been instrumental in designing responsive and visually appealing user interfaces.</p>
-        </li>
-        <li class="flex flex-col items-start">
-            <div class="flex items-center">
-                <img src="/ASSETS/bullet-star.png" class="w-5 h-5" alt="Imagen de HTML" />
-                <h1 class="ml-2 text-xl">HTML</h1>
-            </div>
-            <p class="mt-2">HTML is the foundation of web development, and I've used it extensively to build and structure web pages.</p>
-        </li>
-        <li class="flex flex-col items-start">
-            <div class="flex items-center">
-                <img src="/ASSETS/bullet-star.png" class="w-5 h-5" alt="Imagen de CSS" />
-                <h1 class="ml-2 text-xl">CSS</h1>
-            </div>
-            <p class="mt-2">CSS has been crucial for styling and designing the visual aspects of web projects.</p>
-        </li>
-        <li class="flex flex-col items-start">
-            <div class="flex items-center">
-                <img src="/ASSETS/bullet-star.png" class="w-5 h-5" alt="Imagen de JS" />
-                <h1 class="ml-2 text-xl">JS</h1>
-            </div>
-            <p class="mt-2">JavaScript is essential for adding interactivity and dynamic features to websites.</p>
-        </li>
-        <li class="flex flex-col items-start">
-            <div class="flex items-center">
-                <img src="/ASSETS/bullet-star.png" class="w-5 h-5" alt="Imagen de PHP" />
-                <h1 class="ml-2 text-xl">PHP</h1>
-            </div>
-            <p class="mt-2">PHP has been used in server-side scripting for developing dynamic web pages and applications.</p>
-        </li>
-    </ul>
-    
+        <Skills technologies={technologies} />
         <Footer />
       </div>
     </main>
