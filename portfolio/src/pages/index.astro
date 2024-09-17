@@ -1,27 +1,54 @@
 ---
 // File: src/pages/index.astro
 
-const projects = [
-  {
-    title: 'Bastardos',
-    imageUrl: "/src/ASSETS/bastardos_project.png",
-    githubLink: 'https://github.com/Wolfuliam/Bastardos',
-    liveLink: 'https://zxczc.vercel.app/',
-  },
-  {
-    title: 'Portfolio personal',
-    imageUrl: "/src/ASSETS/iker_project.png",
-    githubLink: 'https://github.com/Wolfuliam/iker-portfolio',
-    liveLink: '',
-  },
-
-];
-
 import "../Styles/global.css";
+
+import bastardosImage from "../../public/ASSETS/Bastardos_Image.jpg";
+import ikerPortfolioImage from "../../public/ASSETS/Iker_Image.jpg";
+import imagen_isaac from "../../public/ASSETS/Isaac_Image.jpg";
+import imagen_plaga from "../../public/ASSETS/Plaga_Image.jpg";
+
 import { Image } from "astro:assets";
-import imagen_isaac from "../ASSETS/Isaac_Image.jpg";
+
 import Timeline from "../components/TimeLine.astro";
-import ProjectCard from '../components/projectcard.astro';
+import ProjectCard from "../components/projectcard.astro";
+import Footer from "../components/footer.astro";
+import Skills from '../components/skills.astro';
+
+const technologies = [
+  {
+    name: 'Python',
+    description: 'Python es uno de mis lenguajes de programación principales. He trabajado en varios proyectos, incluyendo un Convertidor de Pistas de Spotify, una Aplicación de Radio y un Rastreador de Gastos Mensuales.',
+  },
+  {
+    name: 'Java',
+    description: 'Java es otro lenguaje clave que he utilizado en proyectos como la construcción de aplicaciones empresariales y el desarrollo de aplicaciones para Android.',
+  },
+  {
+    name: 'Astro',
+    description: 'Astro es un framework moderno que he utilizado para crear sitios web estáticos rápidos y optimizados.',
+  },
+  {
+    name: 'Tailwind',
+    description: 'Tailwind CSS ha sido fundamental para diseñar interfaces de usuario responsivas y visualmente atractivas.',
+  },
+  {
+    name: 'HTML',
+    description: 'HTML es la base del desarrollo web, y lo he utilizado extensamente para construir y estructurar páginas web.',
+  },
+  {
+    name: 'CSS',
+    description: 'CSS ha sido crucial para estilizar y diseñar los aspectos visuales de los proyectos web.',
+  },
+  {
+    name: 'JS',
+    description: 'JavaScript es esencial para añadir interactividad y características dinámicas a los sitios web.',
+  },
+  {
+    name: 'PHP',
+    description: 'PHP se ha utilizado en la programación del lado del servidor para desarrollar páginas y aplicaciones web dinámicas.',
+  },
+];
 
 /*
 interface Item {
@@ -90,6 +117,27 @@ interface Item {
     img?: string;
 }
 */
+
+const projects = [
+  {
+    title: "Bastardos",
+    imageUrl: bastardosImage,
+    githubLink: "https://github.com/Wolfuliam/Bastardos",
+    liveLink: "https://zxczc.vercel.app/",
+  },
+  {
+    title: "Portfolio personal",
+    imageUrl: ikerPortfolioImage,
+    githubLink: "https://github.com/Wolfuliam/iker-portfolio",
+    liveLink: "",
+  },
+  {
+    title: "Overview moscas",
+    imageUrl: imagen_plaga,
+    githubLink: "https://github.com/Wolfuliam/Fly-overview",
+    liveLink: "",
+  },
+];
 ---
 
 <html lang="en">
@@ -276,14 +324,17 @@ interface Item {
       }
 
       .github_light,
-      .linkedin_light {
+      .linkedin_light,
+      .habilitiesicon_light {
         fill: #0d0d0d;
       }
 
       .github_dark,
-      .linkedin_dark {
+      .linkedin_dark,
+      .habilitiesicon_dark {
         fill: #fff;
       }
+
 
       .white_text {
         color: #fff;
@@ -293,26 +344,23 @@ interface Item {
         color: #0d0d0d;
       }
 
-      .workicon_dark{
+      .workicon_dark {
         stroke: none;
         fill: rgb(255, 255, 255);
       }
 
-      .workicon_light{
+      .workicon_light {
         stroke: none;
         fill: #0d0d0d;
       }
 
-      .projectsicon_dark{
+      .projectsicon_dark {
         stroke: rgb(255, 255, 255);
       }
 
-      .projectsicon_light{
+      .projectsicon_light {
         stroke: #0d0d0d;
       }
-
-
-
     </style>
 
     <style>
@@ -420,6 +468,9 @@ interface Item {
         }
       }
     </style>
+
+   <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script is:inline src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script> <!-- Versión más reciente del plugin -->
   </head>
 
   <body class="font-CoolVetica font-light">
@@ -720,386 +771,558 @@ interface Item {
           </div>
         </div>
         <div class="mt-10 border-0">
-          <h1 class="text-4xl flex flex-row items-center gap-2" id="experience_studies">
-            <svg class="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" id="workicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m6.314 18.022 5 4.707a1 1 0 0 0 1.372 0l5-4.707a1 1 0 0 0 .28-.985L15.091 6.212 17.8 2.6A1 1 0 0 0 17 1H7a1 1 0 0 0-.8 1.6l2.709 3.612-2.875 10.825a1 1 0 0 0 .28.985zM15 3l-1.5 2h-3L9 3zm-4.231 4h2.462l2.649 9.975L12 20.627l-3.88-3.652z"/></svg>
+          <h1
+            class="text-4xl flex flex-row items-center gap-2"
+            id="experience_studies"
+          >
+            <svg
+              class="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0"
+              id="workicon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              ><path
+                d="m6.314 18.022 5 4.707a1 1 0 0 0 1.372 0l5-4.707a1 1 0 0 0 .28-.985L15.091 6.212 17.8 2.6A1 1 0 0 0 17 1H7a1 1 0 0 0-.8 1.6l2.709 3.612-2.875 10.825a1 1 0 0 0 .28.985zM15 3l-1.5 2h-3L9 3zm-4.231 4h2.462l2.649 9.975L12 20.627l-3.88-3.652z"
+              ></path></svg
+            >
 
             Experiencia laboral y Formación.
           </h1>
           <Timeline items={timelineItems} />
-          <h1 class="text-4xl black_text flex flex-row items-center gap-2"><svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="projectsicon" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.5 5H9a2 2 0 0 0-2 2v2c0 1-.6 3-3 3 1 0 3 .6 3 3v2a2 2 0 0 0 2 2h.5m5-14h.5a2 2 0 0 1 2 2v2c0 1 .6 3 3 3-1 0-3 .6-3 3v2a2 2 0 0 1-2 2h-.5"></path></g></svg>Proyectos.</h1>
+          <h1 class="text-4xl black_text flex flex-row items-center gap-2">
+            <svg
+              class="w-7 h-7 sm:w-8 sm:h-8"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
+                ><path
+                  id="projectsicon"
+                  stroke="#000000"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.5 5H9a2 2 0 0 0-2 2v2c0 1-.6 3-3 3 1 0 3 .6 3 3v2a2 2 0 0 0 2 2h.5m5-14h.5a2 2 0 0 1 2 2v2c0 1 .6 3 3 3-1 0-3 .6-3 3v2a2 2 0 0 1-2 2h-.5"
+                ></path></g
+              ></svg
+            >Proyectos.
+          </h1>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <ProjectCard 
-                title={project.title}
-                imageUrl={project.imageUrl}
-                githubLink={project.githubLink}
-                liveLink={project.liveLink}
-              />
-            ))}
+            {
+              projects.map((project) => (
+                <ProjectCard
+                  title={project.title}
+                  imageUrl={project.imageUrl}
+                  githubLink={project.githubLink}
+                  liveLink={project.liveLink}
+                />
+              ))
+            }
           </div>
-
-          <h1 class="text-4xl black_text"></h1>
-          
         </div>
+        <h1 class="text-4xl flex flex-row items-center gap-3 white_text my-3" id="experience_studies">
+          <svg id="habilitiesicon" class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/>
+          </svg> 
+          Habilidades.
+      </h1> 
+      
+      <canvas id="myChart" width="200" height="105"></canvas>
+        <Skills technologies={technologies} />
+        <Footer />
       </div>
     </main>
-    <script is:inline>
-      const title_name = document.getElementById("title_name");
-      const title_text = document.getElementById("title_text");
-      const unique_underline = document.getElementById("unique_underline");
-      const inside_title_text = document.getElementById("inside_title_text");
-      const first_external = document.getElementById("first_external");
-      const second_external = document.getElementById("second_external");
-      const third_external = document.getElementById("third_external");
-      const githubicon = document.getElementById("githubicon");
-      const linkedinicon = document.getElementById("linkedinicon");
-      const paperclipicon = document.getElementById("paperclipicon");
+  </body>
+  <script is:inline>
 
-      const workicon = document.getElementById("workicon");
-      const projectsicon = document.getElementById("projectsicon");
+    const title_name = document.getElementById("title_name");
+    const title_text = document.getElementById("title_text");
+    const unique_underline = document.getElementById("unique_underline");
+    const inside_title_text = document.getElementById("inside_title_text");
+    const first_external = document.getElementById("first_external");
+    const second_external = document.getElementById("second_external");
+    const third_external = document.getElementById("third_external");
+    const githubicon = document.getElementById("githubicon");
+    const linkedinicon = document.getElementById("linkedinicon");
+    const paperclipicon = document.getElementById("paperclipicon");
 
-      const sidebarstudies = document.getElementById("side-bar-studies");
-      const experience_studies = document.getElementById("experience_studies");
+    const workicon = document.getElementById("workicon");
+    const projectsicon = document.getElementById("projectsicon");
 
-      const background = document.getElementById("background");
-      const dottedbg = document.getElementById("dottedbackground");
-      const moonicon = document.getElementById("moonicon");
-      const nav = document.getElementById("nav");
-      const aboutme = document.getElementById("aboutme");
-      const articles = document.getElementById("articles");
-      const contact = document.getElementById("contact");
+    const sidebarstudies = document.getElementById("side-bar-studies");
+    const experience_studies = document.getElementById("experience_studies");
 
-      const aboutme_mobile = document.getElementById("aboutme_mobile");
-      const articles_mobile = document.getElementById("articles_mobile");
-      const contact_mobile = document.getElementById("contact_mobile");
+    const background = document.getElementById("background");
+    const dottedbg = document.getElementById("dottedbackground");
+    const moonicon = document.getElementById("moonicon");
+    const nav = document.getElementById("nav");
+    const aboutme = document.getElementById("aboutme");
+    const articles = document.getElementById("articles");
+    const contact = document.getElementById("contact");
 
-      const mobileMenu = document.getElementById("hamburger_menu");
+    const aboutme_mobile = document.getElementById("aboutme_mobile");
+    const articles_mobile = document.getElementById("articles_mobile");
+    const contact_mobile = document.getElementById("contact_mobile");
 
-      function body_dark() {
-        const current_mobile_light = Array.from(
-          document.getElementsByClassName("current_mobile_light")
-        );
+    const mobileMenu = document.getElementById("hamburger_menu");
 
-        background.classList.remove("bg_light");
-        background.classList.add("bg_dark");
+    const habilitiesicon = document.getElementById("habilitiesicon")
 
-        dottedbg.classList.remove("bg_light_dotted");
-        dottedbg.classList.add("bg_dark_dotted");
+    function body_dark() {
+      const current_mobile_light = Array.from(
+        document.getElementsByClassName("current_mobile_light")
+      );
 
-        moonicon.classList.add("dark_mode_moon");
-        moonicon.classList.remove("light_mode_moon");
-        nav.style.color = "#e7e7e7";
+      background.classList.remove("bg_light");
+      background.classList.add("bg_dark");
 
-        aboutme.classList.add("current_dark");
-        articles.classList.add("dark_mode_ul_header");
-        contact.classList.add("dark_mode_ul_header");
+      dottedbg.classList.remove("bg_light_dotted");
+      dottedbg.classList.add("bg_dark_dotted");
 
-        aboutme_mobile.classList.add("dark_mode_ul_header");
-        articles_mobile.classList.add("dark_mode_ul_header");
-        contact_mobile.classList.add("dark_mode_ul_header");
+      moonicon.classList.add("dark_mode_moon");
+      moonicon.classList.remove("light_mode_moon");
+      nav.style.color = "#e7e7e7";
 
-        aboutme.classList.remove("current_light");
-        articles.classList.remove("light_mode_ul_header");
-        contact.classList.remove("light_mode_ul_header");
+      aboutme.classList.add("current_dark");
+      articles.classList.add("dark_mode_ul_header");
+      contact.classList.add("dark_mode_ul_header");
 
-        aboutme_mobile.classList.remove("light_mode_ul_header");
-        articles_mobile.classList.remove("light_mode_ul_header");
-        contact_mobile.classList.remove("light_mode_ul_header");
+      aboutme_mobile.classList.add("dark_mode_ul_header");
+      articles_mobile.classList.add("dark_mode_ul_header");
+      contact_mobile.classList.add("dark_mode_ul_header");
 
-        mobileMenu.classList.add("dark_hamburger");
-        mobileMenu.classList.remove("light_hamburger");
+      aboutme.classList.remove("current_light");
+      articles.classList.remove("light_mode_ul_header");
+      contact.classList.remove("light_mode_ul_header");
 
-        for (let current_mobile_l of current_mobile_light) {
-          current_mobile_l.classList.add("current_mobile_dark");
-          current_mobile_l.classList.remove("current_mobile_light");
-        }
+      aboutme_mobile.classList.remove("light_mode_ul_header");
+      articles_mobile.classList.remove("light_mode_ul_header");
+      contact_mobile.classList.remove("light_mode_ul_header");
 
-        const dots = Array.from(document.getElementsByClassName("light_dot"));
-        const timespan = Array.from(
-          document.getElementsByClassName("light_span")
-        );
-        const black_text = Array.from(
-          document.getElementsByClassName("black_text")
-        );
-        const black_text_inside = Array.from(
-          document.getElementsByClassName("black_text_inside")
-        );
-        const blue_links = Array.from(
-          document.getElementsByClassName("blue_links")
-        );
-        const suitcaseicon = Array.from(
-          document.getElementsByClassName("suitcaseicon_light")
-        );
-        const bookicon = Array.from(
-          document.getElementsByClassName("bookicon_light")
-        );
+      mobileMenu.classList.add("dark_hamburger");
+      mobileMenu.classList.remove("light_hamburger");
 
-        title_name.style.color = "#e7e7e7";
-        title_text.style.color = "#e7e7e7";
-
-        inside_title_text.classList.add("dark_inside_title_text");
-        inside_title_text.classList.remove("light_inside_title_text");
-
-        unique_underline.classList.add("underline_dark");
-        unique_underline.classList.remove("underline_light");
-
-        first_external.classList.add("external_dark");
-        second_external.classList.add("external_dark");
-        third_external.classList.add("external_dark");
-
-        first_external.classList.remove("external_light");
-        second_external.classList.remove("external_light");
-        third_external.classList.remove("external_light");
-
-        githubicon.classList.add("github_dark");
-        githubicon.classList.remove("github_light");
-
-        linkedinicon.classList.add("linkedin_dark");
-        linkedinicon.classList.remove("linkedin_light");
-
-        paperclipicon.classList.add("paperclip_dark");
-        paperclipicon.classList.remove("paperclip_light");
-
-        workicon.classList.add("workicon_dark");
-        workicon.classList.remove("workicon_light");
-        
-        projectsicon.classList.add("projectsicon_dark");
-        projectsicon.classList.remove("projectsicon_light");
-
-        experience_studies.style.color = "#e7e7e7";
-
-        const dotsCopy = [...dots];
-        for (let dot of dotsCopy) {
-          dot.classList.remove("light_dot");
-          dot.classList.add("dark_dot");
-        }
-
-        for (let time of timespan) {
-          time.classList.remove("light_span");
-          time.classList.add("dark_span");
-        }
-
-        for (let black of black_text) {
-          black.classList.add("white_text");
-          black.classList.remove("black_text");
-        }
-
-        for (let black_inside of black_text_inside) {
-          black_inside.classList.add("white_text_inside");
-          black_inside.classList.remove("black_text_inside");
-        }
-
-        sidebarstudies.style.borderColor = "#fff";
-
-        for (let blue_link of blue_links) {
-          blue_link.classList.remove("blue_links");
-          blue_link.classList.add("dark_blue_links");
-        }
-
-        for (let suitcase of suitcaseicon) {
-          suitcase.classList.remove("suitcaseicon_light");
-          suitcase.classList.add("suitcaseicon_dark");
-        }
-
-        for (let book of bookicon) {
-          book.classList.remove("bookicon_light");
-          book.classList.add("bookicon_dark");
-        }
-
-        const button_light = Array.from(
-          document.getElementsByClassName("button_light")
-        );
-
-        for (let button of button_light) {
-          button.classList.remove("button_light");
-          button.classList.add("button_dark");
-        }
-
-        const decoration_light = Array.from(
-          document.getElementsByClassName("decoration-light")
-        );
-
-        for (let decoration of decoration_light) {
-          decoration.classList.remove("decoration-light");
-          decoration.classList.add("decoration-dark");
-        }
+      for (let current_mobile_l of current_mobile_light) {
+        current_mobile_l.classList.add("current_mobile_dark");
+        current_mobile_l.classList.remove("current_mobile_light");
       }
 
-      function body_light() {
-        const current_mobile_dark = Array.from(
-          document.getElementsByClassName("current_mobile_dark")
-        );
-        background.classList.remove("bg_dark");
-        background.classList.add("bg_light");
+      const dots = Array.from(document.getElementsByClassName("light_dot"));
+      const timespan = Array.from(
+        document.getElementsByClassName("light_span")
+      );
+      const black_text = Array.from(
+        document.getElementsByClassName("black_text")
+      );
+      const black_text_inside = Array.from(
+        document.getElementsByClassName("black_text_inside")
+      );
+      const blue_links = Array.from(
+        document.getElementsByClassName("blue_links")
+      );
+      const suitcaseicon = Array.from(
+        document.getElementsByClassName("suitcaseicon_light")
+      );
+      const bookicon = Array.from(
+        document.getElementsByClassName("bookicon_light")
+      );
 
-        dottedbg.classList.remove("bg_dark_dotted");
-        dottedbg.classList.add("bg_light_dotted");
+      title_name.style.color = "#e7e7e7";
+      title_text.style.color = "#e7e7e7";
 
-        moonicon.classList.add("light_mode_moon");
-        moonicon.classList.remove("dark_mode_moon");
-        nav.style.color = "#0d0d0d";
+      inside_title_text.classList.add("dark_inside_title_text");
+      inside_title_text.classList.remove("light_inside_title_text");
 
-        aboutme.classList.remove("current_dark");
-        articles.classList.remove("dark_mode_ul_header");
-        contact.classList.remove("dark_mode_ul_header");
+      unique_underline.classList.add("underline_dark");
+      unique_underline.classList.remove("underline_light");
 
-        aboutme_mobile.classList.remove("dark_mode_ul_header");
-        articles_mobile.classList.remove("dark_mode_ul_header");
-        contact_mobile.classList.remove("dark_mode_ul_header");
+      first_external.classList.add("external_dark");
+      second_external.classList.add("external_dark");
+      third_external.classList.add("external_dark");
 
-        aboutme.classList.add("current_light");
-        articles.classList.add("light_mode_ul_header");
-        contact.classList.add("light_mode_ul_header");
+      first_external.classList.remove("external_light");
+      second_external.classList.remove("external_light");
+      third_external.classList.remove("external_light");
 
-        aboutme_mobile.classList.add("light_mode_ul_header");
-        articles_mobile.classList.add("light_mode_ul_header");
-        contact_mobile.classList.add("light_mode_ul_header");
+      githubicon.classList.add("github_dark");
+      githubicon.classList.remove("github_light");
 
-        mobileMenu.classList.remove("dark_hamburger");
-        mobileMenu.classList.add("light_hamburger");
+      linkedinicon.classList.add("linkedin_dark");
+      linkedinicon.classList.remove("linkedin_light");
 
-        for (let current_mobile_d of current_mobile_dark) {
-          current_mobile_d.classList.remove("current_mobile_dark");
-          current_mobile_d.classList.add("current_mobile_light");
-        }
+      paperclipicon.classList.add("paperclip_dark");
+      paperclipicon.classList.remove("paperclip_light");
 
-        const dots = Array.from(document.getElementsByClassName("dark_dot"));
-        const timespan = Array.from(
-          document.getElementsByClassName("dark_span")
-        );
-        const white_text = Array.from(
-          document.getElementsByClassName("white_text")
-        );
-        const white_text_inside = Array.from(
-          document.getElementsByClassName("white_text_inside")
-        );
-        const blue_links = Array.from(
-          document.getElementsByClassName("dark_blue_links")
-        );
-        const suitcaseicon = Array.from(
-          document.getElementsByClassName("suitcaseicon_dark")
-        );
-        const bookicon = Array.from(
-          document.getElementsByClassName("bookicon_dark")
-        );
+      workicon.classList.add("workicon_dark");
+      workicon.classList.remove("workicon_light");
 
-        title_name.style.color = "#0d0d0d";
-        title_text.style.color = "#0d0d0d";
+      projectsicon.classList.add("projectsicon_dark");
+      projectsicon.classList.remove("projectsicon_light");
 
-        inside_title_text.classList.add("light_inside_title_text");
-        inside_title_text.classList.remove("dark_inside_title_text");
+      habilitiesicon.classList.add("habilitiesicon_dark");
+      habilitiesicon.classList.remove("habilitiesicon_light");
 
-        unique_underline.classList.add("underline_light");
-        unique_underline.classList.remove("underline_dark");
+      experience_studies.style.color = "#e7e7e7";
 
-        first_external.classList.remove("external_dark");
-        second_external.classList.remove("external_dark");
-        third_external.classList.remove("external_dark");
-
-        first_external.classList.add("external_light");
-        second_external.classList.add("external_light");
-        third_external.classList.add("external_light");
-
-        githubicon.classList.remove("github_dark");
-        githubicon.classList.add("github_light");
-
-        linkedinicon.classList.remove("linkedin_dark");
-        linkedinicon.classList.add("linkedin_light");
-
-        paperclipicon.classList.add("paperclip_light");
-        paperclipicon.classList.remove("paperclip_dark");
-
-        workicon.classList.remove("workicon_dark");
-        workicon.classList.add("workicon_light");
-        
-        projectsicon.classList.remove("projectsicon_dark");
-        projectsicon.classList.add("projectsicon_light");
-
-        experience_studies.style.color = "#0d0d0d";
-
-        const dotsCopy = [...dots];
-        for (let dot of dotsCopy) {
-          dot.classList.add("light_dot");
-          dot.classList.remove("dark_dot");
-        }
-
-        for (let time of timespan) {
-          time.classList.add("light_span");
-          time.classList.remove("dark_span");
-        }
-
-        for (let white of white_text) {
-          white.classList.add("black_text");
-          white.classList.remove("white_text");
-        }
-
-        for (let white_inside of white_text_inside) {
-          white_inside.classList.add("black_text_inside");
-          white_inside.classList.remove("white_text_inside");
-        }
-
-        sidebarstudies.style.borderColor = " #0d0d0d";
-
-        for (let blue_link of blue_links) {
-          blue_link.classList.add("blue_links");
-          blue_link.classList.remove("dark_blue_links");
-        }
-
-        for (let suitcase of suitcaseicon) {
-          suitcase.classList.add("suitcaseicon_light");
-          suitcase.classList.remove("suitcaseicon_dark");
-        }
-
-        for (let book of bookicon) {
-          book.classList.add("bookicon_light");
-          book.classList.remove("bookicon_dark");
-        }
-
-        const button_dark = Array.from(
-          document.getElementsByClassName("button_dark")
-        );
-
-        for (let button of button_dark) {
-          button.classList.remove("button_dark");
-          button.classList.add("button_light");
-        }
-
-        const decoration_dark = Array.from(
-          document.getElementsByClassName("decoration-dark")
-        );
-
-        for (let decoration of decoration_dark) {
-          decoration.classList.remove("decoration-dark");
-          decoration.classList.add("decoration-light");
-        }
+      const dotsCopy = [...dots];
+      for (let dot of dotsCopy) {
+        dot.classList.remove("light_dot");
+        dot.classList.add("dark_dot");
       }
 
-      let isOriginalColor = true;
-      window.onload = function () {
-        const savedTheme = localStorage.getItem("theme");
+      for (let time of timespan) {
+        time.classList.remove("light_span");
+        time.classList.add("dark_span");
+      }
 
-        if (savedTheme === "dark") {
-          body_dark(); // Aplicar tema oscuro
-          isOriginalColor = false; // Asegurarse de que el botón funcione correctamente
-        } else {
-          body_light(); // Aplicar tema claro
-          isOriginalColor = true; // Asegurarse de que el botón funcione correctamente
-        }
-      };
+      for (let black of black_text) {
+        black.classList.add("white_text");
+        black.classList.remove("black_text");
+      }
 
-      function ChangeColors() {
+      for (let black_inside of black_text_inside) {
+        black_inside.classList.add("white_text_inside");
+        black_inside.classList.remove("black_text_inside");
+      }
+
+      sidebarstudies.style.borderColor = "#fff";
+
+      for (let blue_link of blue_links) {
+        blue_link.classList.remove("blue_links");
+        blue_link.classList.add("dark_blue_links");
+      }
+
+      for (let suitcase of suitcaseicon) {
+        suitcase.classList.remove("suitcaseicon_light");
+        suitcase.classList.add("suitcaseicon_dark");
+      }
+
+      for (let book of bookicon) {
+        book.classList.remove("bookicon_light");
+        book.classList.add("bookicon_dark");
+      }
+
+      const button_light = Array.from(
+        document.getElementsByClassName("button_light")
+      );
+
+      for (let button of button_light) {
+        button.classList.remove("button_light");
+        button.classList.add("button_dark");
+      }
+
+      const decoration_light = Array.from(
+        document.getElementsByClassName("decoration-light")
+      );
+
+      for (let decoration of decoration_light) {
+        decoration.classList.remove("decoration-light");
+        decoration.classList.add("decoration-dark");
+      }
+    }
+
+    function body_light() {
+      const current_mobile_dark = Array.from(
+        document.getElementsByClassName("current_mobile_dark")
+      );
+      background.classList.remove("bg_dark");
+      background.classList.add("bg_light");
+
+      dottedbg.classList.remove("bg_dark_dotted");
+      dottedbg.classList.add("bg_light_dotted");
+
+      moonicon.classList.add("light_mode_moon");
+      moonicon.classList.remove("dark_mode_moon");
+      nav.style.color = "#0d0d0d";
+
+      aboutme.classList.remove("current_dark");
+      articles.classList.remove("dark_mode_ul_header");
+      contact.classList.remove("dark_mode_ul_header");
+
+      aboutme_mobile.classList.remove("dark_mode_ul_header");
+      articles_mobile.classList.remove("dark_mode_ul_header");
+      contact_mobile.classList.remove("dark_mode_ul_header");
+
+      aboutme.classList.add("current_light");
+      articles.classList.add("light_mode_ul_header");
+      contact.classList.add("light_mode_ul_header");
+
+      aboutme_mobile.classList.add("light_mode_ul_header");
+      articles_mobile.classList.add("light_mode_ul_header");
+      contact_mobile.classList.add("light_mode_ul_header");
+
+      mobileMenu.classList.remove("dark_hamburger");
+      mobileMenu.classList.add("light_hamburger");
+
+      for (let current_mobile_d of current_mobile_dark) {
+        current_mobile_d.classList.remove("current_mobile_dark");
+        current_mobile_d.classList.add("current_mobile_light");
+      }
+
+      const dots = Array.from(document.getElementsByClassName("dark_dot"));
+      const timespan = Array.from(document.getElementsByClassName("dark_span"));
+      const white_text = Array.from(
+        document.getElementsByClassName("white_text")
+      );
+      const white_text_inside = Array.from(
+        document.getElementsByClassName("white_text_inside")
+      );
+      const blue_links = Array.from(
+        document.getElementsByClassName("dark_blue_links")
+      );
+      const suitcaseicon = Array.from(
+        document.getElementsByClassName("suitcaseicon_dark")
+      );
+      const bookicon = Array.from(
+        document.getElementsByClassName("bookicon_dark")
+      );
+
+      title_name.style.color = "#0d0d0d";
+      title_text.style.color = "#0d0d0d";
+
+      inside_title_text.classList.add("light_inside_title_text");
+      inside_title_text.classList.remove("dark_inside_title_text");
+
+      unique_underline.classList.add("underline_light");
+      unique_underline.classList.remove("underline_dark");
+
+      first_external.classList.remove("external_dark");
+      second_external.classList.remove("external_dark");
+      third_external.classList.remove("external_dark");
+
+      first_external.classList.add("external_light");
+      second_external.classList.add("external_light");
+      third_external.classList.add("external_light");
+
+      githubicon.classList.remove("github_dark");
+      githubicon.classList.add("github_light");
+
+      linkedinicon.classList.remove("linkedin_dark");
+      linkedinicon.classList.add("linkedin_light");
+
+      paperclipicon.classList.add("paperclip_light");
+      paperclipicon.classList.remove("paperclip_dark");
+
+      workicon.classList.remove("workicon_dark");
+      workicon.classList.add("workicon_light");
+
+      projectsicon.classList.remove("projectsicon_dark");
+      projectsicon.classList.add("projectsicon_light");
+
+      habilitiesicon.classList.remove("habilitiesicon_dark");
+      habilitiesicon.classList.add("habilitiesicon_light");
+
+      experience_studies.style.color = "#0d0d0d";
+
+      const dotsCopy = [...dots];
+      for (let dot of dotsCopy) {
+        dot.classList.add("light_dot");
+        dot.classList.remove("dark_dot");
+      }
+
+      for (let time of timespan) {
+        time.classList.add("light_span");
+        time.classList.remove("dark_span");
+      }
+
+      for (let white of white_text) {
+        white.classList.add("black_text");
+        white.classList.remove("white_text");
+      }
+
+      for (let white_inside of white_text_inside) {
+        white_inside.classList.add("black_text_inside");
+        white_inside.classList.remove("white_text_inside");
+      }
+
+      sidebarstudies.style.borderColor = " #0d0d0d";
+
+      for (let blue_link of blue_links) {
+        blue_link.classList.add("blue_links");
+        blue_link.classList.remove("dark_blue_links");
+      }
+
+      for (let suitcase of suitcaseicon) {
+        suitcase.classList.add("suitcaseicon_light");
+        suitcase.classList.remove("suitcaseicon_dark");
+      }
+
+      for (let book of bookicon) {
+        book.classList.add("bookicon_light");
+        book.classList.remove("bookicon_dark");
+      }
+
+      const button_dark = Array.from(
+        document.getElementsByClassName("button_dark")
+      );
+
+      for (let button of button_dark) {
+        button.classList.remove("button_dark");
+        button.classList.add("button_light");
+      }
+
+      const decoration_dark = Array.from(
+        document.getElementsByClassName("decoration-dark")
+      );
+
+      for (let decoration of decoration_dark) {
+        decoration.classList.remove("decoration-dark");
+        decoration.classList.add("decoration-light");
+      }
+    }
+
+    let isOriginalColor = true;
+    window.onload = function () {
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedTheme === "dark") {
+        body_dark(); // Aplicar tema oscuro
+        isOriginalColor = false; // Asegurarse de que el botón funcione correctamente
+      } else {
+        body_light(); // Aplicar tema claro
+        isOriginalColor = true; // Asegurarse de que el botón funcione correctamente
+      }
+    };
+
+    function ChangeColors() {
+      if (isOriginalColor) {
+        body_dark();
+        localStorage.setItem("theme", "dark"); // Guardar estado oscuro
+      } else {
+        body_light();
+        localStorage.setItem("theme", "light");
+      }
+
+      isOriginalColor = !isOriginalColor;
+    }
+  </script>
+  <script is:inline src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
+  <script is:inline>
+    var ctx = document.getElementById("myChart").getContext("2d");
+
+    const data = {
+        datasets: [{
+            label: 'Tabla de habilidades',
+            data: [
+                { x: 0, y: 7.5, label: 'Python' },
+                { x: 1, y: 6, label: 'Java' },
+                { x: 2, y: 6, label: 'Astro' },
+                { x: 3, y: 8, label: 'Tailwind' },
+                { x: 4, y: 9, label: 'HTML' },
+                { x: 5, y: 9, label: 'CSS' },
+                { x: 6, y: 7, label: 'JS' },
+                { x: 7, y: 8, label: 'PHP' },
+            ],
+            backgroundColor: 'rgba(72, 25, 202, 0.2)', // Color de fondo inicial
+            borderColor: 'rgb(72, 25, 202)', // Color de borde inicial
+            borderWidth: 2,
+            pointBorderColor: '#fff',
+            pointBackgroundColor: 'rgb(72, 25, 202)',
+            pointHoverBorderColor: 'rgb(72, 25, 202)',
+            pointHoverBackgroundColor: '#fff',
+            fill: true,
+        }]
+    };
+
+    let labelColor = 'black'; // Color inicial de las etiquetas
+    let backgroundColor = 'rgba(72, 25, 202, 0.2)'; // Color inicial del fondo
+    let borderColor = 'rgb(72, 25, 202)'; // Color inicial del borde
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            plugins: {
+                datalabels: {
+                    display: true,
+                    color: labelColor,
+                    anchor: 'end',
+                    align: 'top',
+                    formatter: function(value) {
+                        return value.label ? value.label : '';
+                    }
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            },
+            scales: {
+              x: {
+                    min: -0.2,
+                    max: 7.2,
+                    type: 'linear',
+                    position: 'bottom',
+                    ticks: {
+                        // Ocultar las etiquetas de los ticks
+                        callback: function(value, index, values) {
+                            if (value === -0.2 || value === 7.2) {
+                                return ''; // Oculta las etiquetas en -0.2 y 7.2
+                            }
+                            return value; // Muestra las demás etiquetas
+                        }
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 10,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    };
+
+    var myChart = new Chart(ctx, config);
+
+    function updateChartColors(isOriginalColor) {
+        // Actualiza el color de las etiquetas, fondo, y borde del gráfico según el estado del tema
+        labelColor = isOriginalColor ? 'black' : 'white';
+        backgroundColor = isOriginalColor ? 'rgba(72, 25, 202, 0.2)' : 'rgb(234, 201, 70, 0.2)'; // Cambia el color de fondo
+        borderColor = isOriginalColor ? 'rgb(72, 25, 202)' : 'rgb(234, 201, 70)'; // Cambia el color del borde
+
+        myChart.options.plugins.datalabels.color = labelColor;
+        myChart.data.datasets[0].backgroundColor = backgroundColor;
+        myChart.data.datasets[0].borderColor = borderColor;
+        myChart.update();
+    }
+
+    // Llama a esta función en función del estado del tema
+    function ChangeColors() {
         if (isOriginalColor) {
-          body_dark();
-          localStorage.setItem("theme", "dark"); // Guardar estado oscuro
+            body_dark();
+            localStorage.setItem("theme", "dark"); // Guardar estado oscuro
         } else {
-          body_light();
-          localStorage.setItem("theme", "light");
+            body_light();
+            localStorage.setItem("theme", "light");
         }
 
         isOriginalColor = !isOriginalColor;
-      }
-    </script>
-    <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
-  </body>
+
+        // Actualizar el color de las etiquetas, fondo, y borde del gráfico después de cambiar el tema
+        updateChartColors(isOriginalColor);
+    }
+
+    window.onload = function () {
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "dark") {
+            body_dark(); // Aplicar tema oscuro
+            isOriginalColor = false; // Asegurarse de que el botón funcione correctamente
+        } else {
+            body_light(); // Aplicar tema claro
+            isOriginalColor = true; // Asegurarse de que el botón funcione correctamente
+        }
+
+        // Actualizar el color de las etiquetas, fondo, y borde del gráfico según el tema guardado
+        updateChartColors(isOriginalColor);
+    };
+</script>
+
 </html>

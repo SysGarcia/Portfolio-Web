@@ -1,0 +1,28 @@
+---
+const { technologies } = Astro.props;
+import bulletStar from '../../public/ASSETS/bullet-star.png'; // Ajusta la ruta según la ubicación de tu imagen
+import { Image } from "astro:assets";
+---
+
+<ul class="flex flex-col space-y-4 white_text">
+  {technologies.map((tech) => (
+    <li class="flex flex-col items-start">
+      <div class="flex items-center">
+        <Image src={bulletStar} class="w-5 h-5" alt={`Imagen de ${tech.name}`} />
+        <h1 class="ml-2 text-xl">{tech.name}</h1>
+      </div>
+      <p class="mt-2">{tech.description}</p>
+    </li>
+  ))}
+</ul>
+
+<style>
+          .white_text {
+        color: #fff;
+      }
+
+      .black_text {
+        color: #0d0d0d;
+      }
+
+</style>
