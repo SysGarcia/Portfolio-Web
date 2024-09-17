@@ -12,6 +12,7 @@ import { Image } from "astro:assets";
 
 import Timeline from "../components/TimeLine.astro";
 import ProjectCard from '../components/projectcard.astro';
+import Footer from '../components/footer.astro';
 
 /*
 interface Item {
@@ -432,7 +433,9 @@ const projects = [
           opacity: 1;
         }
       }
+
     </style>
+
   </head>
 
   <body class="font-CoolVetica font-light">
@@ -751,12 +754,11 @@ const projects = [
               />
             ))}
           </div>
-
-          <h1 class="text-4xl black_text"></h1>
-          
         </div>
       </div>
-    </main>
+    </div>
+    <Footer />
+  </main>
     <script is:inline>
       const title_name = document.getElementById("title_name");
       const title_text = document.getElementById("title_text");
