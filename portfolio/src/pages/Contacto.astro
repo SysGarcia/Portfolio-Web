@@ -111,6 +111,14 @@ import "../Styles/global.css";
         background-image: radial-gradient(#0c172d 1px, transparent 1px);
       }
 
+      .white_text {
+        color: #fff;
+      }
+
+      .black_text {
+        color: #0d0d0d;
+      }
+
     </style>
   </head>
 
@@ -238,7 +246,9 @@ import "../Styles/global.css";
       }
     </script>
   <main class="max-w-4xl m-auto mt-16">
-    <div class="ml-6 mr-6"></div>
+    <div class="ml-6 mr-6">
+      
+    </div>
   </main>
   <script is:inline>
       const background = document.getElementById("background");
@@ -304,6 +314,15 @@ import "../Styles/global.css";
             current_mobile_l.classList.add("current_mobile_dark");
             current_mobile_l.classList.remove("current_mobile_light");
           }
+
+          const black_text = Array.from(
+            document.getElementsByClassName("black_text")
+          );
+
+          for (let black of black_text) {
+            black.classList.add("white_text");
+            black.classList.remove("black_text");
+          }
     }
 
     function body_light() {
@@ -342,6 +361,15 @@ import "../Styles/global.css";
           for (let current_mobile_d of current_mobile_dark) {
             current_mobile_d.classList.remove("current_mobile_dark");
             current_mobile_d.classList.add("current_mobile_light");
+          }
+
+          const white_text = Array.from(
+            document.getElementsByClassName("white_text")
+          );
+
+          for (let white of white_text) {
+            white.classList.add("black_text");
+            white.classList.remove("white_text");
           }
     }
 

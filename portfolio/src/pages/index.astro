@@ -16,38 +16,29 @@ import Footer from "../components/footer.astro";
 import Skills from '../components/skills.astro';
 
 const technologies = [
-  {
-    name: 'Python',
-    description: 'Python es uno de mis lenguajes de programación principales. He trabajado en varios proyectos, incluyendo un Convertidor de Pistas de Spotify, una Aplicación de Radio y un Rastreador de Gastos Mensuales.',
-  },
-  {
-    name: 'Java',
-    description: 'Java es otro lenguaje clave que he utilizado en proyectos como la construcción de aplicaciones empresariales y el desarrollo de aplicaciones para Android.',
-  },
-  {
-    name: 'Astro',
-    description: 'Astro es un framework moderno que he utilizado para crear sitios web estáticos rápidos y optimizados.',
-  },
-  {
-    name: 'Tailwind',
-    description: 'Tailwind CSS ha sido fundamental para diseñar interfaces de usuario responsivas y visualmente atractivas.',
-  },
-  {
-    name: 'HTML',
-    description: 'HTML es la base del desarrollo web, y lo he utilizado extensamente para construir y estructurar páginas web.',
-  },
-  {
-    name: 'CSS',
-    description: 'CSS ha sido crucial para estilizar y diseñar los aspectos visuales de los proyectos web.',
-  },
-  {
-    name: 'JS',
-    description: 'JavaScript es esencial para añadir interactividad y características dinámicas a los sitios web.',
-  },
-  {
-    name: 'PHP',
-    description: 'PHP se ha utilizado en la programación del lado del servidor para desarrollar páginas y aplicaciones web dinámicas.',
-  },
+{
+  "name": "Python",
+  "description": "Python es uno de mis principales lenguajes de programación. He trabajado en diversos proyectos, como un convertidor de listas de reproducción de Spotify, una aplicación de radio y un rastreador de gastos mensuales."
+},
+{
+  "name": "Java",
+  "description": "Tengo experiencia enseñando Java a un alumno durante mis clases particulares en el ciclo superior de Desarrollo de Aplicaciones Multiplataforma (DAM)."
+},
+{
+  "name": "Astro",
+  "description": "He desarrollado proyectos con Astro, destacando su rapidez y eficiencia. En especial este proyecto, y la pagina web de Bastardos."
+},
+{
+  "name": "Tailwind"
+},
+{
+  "name": "HTML, CSS, JS",
+  "description": "De mis principales tecnologías, ya que son las que más he utilizado y con las que tengo mayor experiencia."
+},
+{
+  "name": "PHP",
+  "description": "Desarrollé un proyecto en PHP para una empresa de manufactura de piezas industriales."
+}
 ];
 
 /*
@@ -629,9 +620,9 @@ const projects = [
           <p class="text-2xl" id="title_text">
             <span class="light_inside_title_text" id="inside_title_text"
               >Técnico en Administración de sistemas informáticos en red</span
-            >. De Madrid, España. Especializado en crear experiencias <span
+            >. De Madrid, España. Especializado en convertir ideas a la <span
               class="underline decoration-wavy decoration-2 underline_light"
-              id="unique_underline">únicas</span
+              id="unique_underline">realidad</span
             >.
           </p>
           <div class="icon-bar mt-1 flex">
@@ -828,9 +819,8 @@ const projects = [
               <path d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/>
           </svg> 
           Habilidades.
-      </h1> 
-      
-      <canvas id="myChart" width="200" height="105"></canvas>
+        </h1> 
+        <canvas id="myChart" style="display: block; width: 100%; height: auto;"></canvas>
         <Skills technologies={technologies} />
         <Footer />
       </div>
@@ -870,6 +860,8 @@ const projects = [
     const mobileMenu = document.getElementById("hamburger_menu");
 
     const habilitiesicon = document.getElementById("habilitiesicon")
+
+    const isaac_portfolio = document.getElementById("isaac_portfolio")
 
     function body_dark() {
       const current_mobile_light = Array.from(
@@ -964,6 +956,9 @@ const projects = [
 
       habilitiesicon.classList.add("habilitiesicon_dark");
       habilitiesicon.classList.remove("habilitiesicon_light");
+
+      isaac_portfolio.classList.add("isaac_portfolio_dark");
+      isaac_portfolio.classList.remove("isaac_portfolio_light");
 
       experience_studies.style.color = "#e7e7e7";
 
@@ -1115,6 +1110,9 @@ const projects = [
       habilitiesicon.classList.remove("habilitiesicon_dark");
       habilitiesicon.classList.add("habilitiesicon_light");
 
+      isaac_portfolio.classList.remove("isaac_portfolio_dark");
+      isaac_portfolio.classList.add("isaac_portfolio_light");
+      
       experience_studies.style.color = "#0d0d0d";
 
       const dotsCopy = [...dots];
@@ -1201,7 +1199,23 @@ const projects = [
   </script>
   <script is:inline src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
   <script is:inline>
-    var ctx = document.getElementById("myChart").getContext("2d");
+    var canvas = document.getElementById("myChart");
+    var ctx = canvas.getContext("2d");
+
+    // Función para ajustar la relación de aspecto según el ancho de la ventana
+    function adjustCanvasAspectRatio() {
+        if (window.innerWidth < 600) {
+            canvas.style.height = '38vh'; // Establece una altura dinámica basada en la vista (50% del viewport height)
+        } else {
+            canvas.style.height = '32vh'; // Menor altura para pantallas grandes
+        }
+    }
+
+    // Ejecuta la función inicialmente
+    adjustCanvasAspectRatio();
+
+    // También ejecuta la función cuando se redimensiona la ventana
+    window.addEventListener('resize', adjustCanvasAspectRatio);
 
     const data = {
         datasets: [{
