@@ -1,131 +1,122 @@
 ---
 interface Item {
-    title: string;
-    hoverColor: string;
-    TextColor: string;
-    hoverIconColorandText: string;
-    svgPath?: string;
-    img?: string;
-    category: string;
+  title: string;
+  hoverColor: string;
+  TextColor: string;
+  hoverIconColorandText: string;
+  svgPath?: string;
+  img?: string;
+  category: string;
 }
 
 const { items } = Astro.props as { items: Item[] };
 
 // Agrupar ítems por categoría
 const categories = {
-    'Desarrollo web': items.filter(item => item.category === 'Desarrollo web'),
-    'Programación': items.filter(item => item.category === 'Programación'),
-    'Sistema Operativo': items.filter(item => item.category === 'Sistema Operativo'),
-    'Tecnologías': items.filter(item => item.category === 'Tecnologías'),
+  "Desarrollo web": items.filter((item) => item.category === "Desarrollo web"),
+  Programación: items.filter((item) => item.category === "Programación"),
+  "Sistema Operativo": items.filter((item) => item.category === "Sistema Operativo"),
+  Tecnologías: items.filter((item) => item.category === "Tecnologías"),
 };
 ---
 
 <style>
-.button {
-  @apply flex items-center transition-colors;
-  color: var(--text-color);
-  margin-top: 4px;
-  border: 2px solid #00000042;
-  border-radius: 13px;
-}
+  .button {
+    @apply flex items-center transition-colors;
+    color: var(--text-color);
+    margin-top: 4px;
+    border: 2px solid #00000042;
+    border-radius: 13px;
+  }
 
-.button_light {
-  background-color: #dadbe1;
-  background-image: radial-gradient(
-    closest-side at 50% 50%,
-    hsla(0, 0%, 94.9%, 0.21) 0%,
-    rgba(191, 30, 30, 0.24) 100%
-  );
-}
+  .button_light {
+    background-color: #dadbe1;
+    background-image: radial-gradient(closest-side at 50% 50%, hsla(0, 0%, 94.9%, 0.21) 0%, rgba(191, 30, 30, 0.24) 100%);
+  }
 
-.button_dark {
-  background-color: #ffffff8a;
-  background-image: radial-gradient(
-    closest-side at 50% 50%,
-    hsla(0, 0%, 100%, 0.83) 0%,
-    rgba(114, 33, 213, 0) 100%
-  );
-}
+  .button_dark {
+    background-color: #ffffff8a;
+    background-image: radial-gradient(closest-side at 50% 50%, hsla(0, 0%, 100%, 0.83) 0%, rgba(114, 33, 213, 0) 100%);
+  }
 
-.button:hover {
-  background-color: var(--hover-bg-color);
-  color: var(--hover-text-color);
-}
+  .button:hover {
+    background-color: var(--hover-bg-color);
+    color: var(--hover-text-color);
+  }
 
-.icon {
-  @apply w-5 h-5 mr-2 transition-colors;
-  fill: var(--icon-color);
-}
+  .icon {
+    @apply w-5 h-5 mr-2 transition-colors;
+    fill: var(--icon-color);
+  }
 
-.button:hover .icon {
-  fill: var(--hover-icon-color);
-}
+  .button:hover .icon {
+    fill: var(--hover-icon-color);
+  }
 
-.img {
-  @apply w-5 h-5 mr-2;
-  filter: invert(30%);
-}
+  .img {
+    @apply w-5 h-5 mr-2;
+    filter: invert(30%);
+  }
 
-.button:hover .img {
-  filter: brightness(0%);
-}
+  .button:hover .img {
+    filter: brightness(0%);
+  }
 
-.container {
-  @apply flex gap-x-20 gap-y-4;
-}
+  .container {
+    @apply flex gap-x-20 gap-y-4;
+  }
 
-.column {
-  @apply flex flex-col;
-}
+  .column {
+    @apply flex flex-col;
+  }
 
-.white_text {
-  color: #fff;
-}
+  .white_text {
+    color: #fff;
+  }
 
-.black_text {
-  color: #0d0d0d;
-}
+  .black_text {
+    color: #0d0d0d;
+  }
 
-.decoration-light {
-  text-decoration-color: #00000036;
-}
+  .decoration-light {
+    text-decoration-color: #00000036;
+  }
 
-.decoration-dark {
-  text-decoration-color: #ffffff45;
-}
-
+  .decoration-dark {
+    text-decoration-color: #ffffff45;
+  }
 </style>
 
 <div class="relative mt-6 flex flex-wrap justify-center container">
-  {Object.keys(categories).map((category) => (
-    <div class="column">
-      <h2 class="text-xl font-light mb-2 gap-x-4 black_text gap-y-4 text-center underline decoration-2 decoration-light">
-        {category}
-      </h2>
-      {categories[category].map((item) => (
-        <button
-          class={`button ${item.bgColor ? 'button_light' : 'button_dark'} justify-center`}
-          style={{
-            '--bg-color': item.bgColor || '#dadbe1', // Color de fondo por defecto si no está definido
-            '--hover-bg-color': item.hoverColor,
-            '--text-color': item.textColor,
-            '--icon-color': item.textColor,
-            '--hover-icon-color': item.hoverIconColorAndText,
-            '--hover-text-color': item.hoverIconColorAndText,
-          }}
-        >
-          {item.svgPath ? (
-            <svg viewBox="0 0 128 128" class="icon" xmlns="http://www.w3.org/2000/svg">
-              <path d={item.svgPath} />
-            </svg>
-          ) : item.img ? (
-            <img src={item.img} alt={item.title} class="img" loading="lazy" />
-          ) : null}
-          {item.title}
-        </button>
-      ))}
-    </div>
-  ))}
+  {
+    Object.keys(categories).map((category) => (
+      <div class="column">
+        <h2 class="text-xl font-light mb-2 gap-x-4 black_text gap-y-4 text-center underline decoration-2 decoration-light">{category}</h2>
+        {categories[category].map((item) => (
+          <button
+            class={`button ${item.bgColor ? "button_light" : "button_dark"} justify-center`}
+            style={{
+              "--bg-color": item.bgColor || "#dadbe1", // Color de fondo por defecto si no está definido
+              "--hover-bg-color": item.hoverColor,
+              "--text-color": item.textColor,
+              "--icon-color": item.textColor,
+              "--hover-icon-color": item.hoverIconColorAndText,
+              "--hover-text-color": item.hoverIconColorAndText,
+            }}
+          >
+            {item.svgPath ? (
+              <svg viewBox="0 0 128 128" class="icon" xmlns="http://www.w3.org/2000/svg">
+                <path d={item.svgPath} />
+              </svg>
+            ) : item.img ? (
+              <img src={item.img} alt={item.title} class="img" loading="lazy" />
+            ) : null}
+            {item.title}
+          </button>
+        ))}
+      </div>
+    ))
+  }
 </div>
 
 /*

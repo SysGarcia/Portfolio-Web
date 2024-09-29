@@ -1,5 +1,6 @@
 ---
 import "../Styles/global.css";
+import Form from "../components/form.astro";
 ---
 
 <!doctype html>
@@ -93,24 +94,6 @@ import "../Styles/global.css";
         stroke: white;
       }
 
-      .bg_light {
-          background-color: #e7e7e7 ;
-          background-image: radial-gradient(closest-side at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(244, 181, 225, 0.5) 100%) ;
-      }
-
-      .bg_dark{
-          background-color: #28155e ;
-          background-image: radial-gradient(closest-side at 50% 50%, hsla(0, 96.5%, 44.9%, 0) 0%, rgba(0, 0, 0, 0.5) 100%) ;
-}
-
-      .bg_light_dotted{
-        background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-      }
-
-      .bg_dark_dotted {
-        background-image: radial-gradient(#0c172d 1px, transparent 1px);
-      }
-
       .white_text {
         color: #fff;
       }
@@ -119,57 +102,95 @@ import "../Styles/global.css";
         color: #0d0d0d;
       }
 
+      .form_white_text {
+        color: #fff;
+      }
+    
+      .form_black_text {
+        color: #0d0d0d;
+      }
+
+      .contact_form_white {
+      color: #f3f3f3;
+    }
+  
+    .contact_form_black {
+      color: #161616;
+    }
+
     </style>
   </head>
 
-  <body class="font-CoolVetica font-light">
-    <div
-    id="background"
-    class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform bg_light"
-  >
-  </div>
-  
-  <div
-    id="dottedbackground"
-    class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%, #0d0d0d_70%,transparent_100%)]"
-  >
-  </div>
-  
+  <body class="font-CoolVetica font-light w-full h-full">
+    <div id="background-dark" class="w-full fixed z-[-2] pattern-triangles pattern-gray-800 pattern-bg-black pattern-size-24 pattern-opacity-100 h-svh hidden" style="--pattern-color:#28155e"></div>
+    <div id="background-light" class="w-full fixed z-[-2] pattern-triangles pattern-gray-100 pattern-bg-white pattern-size-24 pattern-opacity-100 h-svh"></div>
 
+    <style>
+#background-dark {
+    position: fixed; /* Mantener el fondo fijo */
+    top: 0;         /* Asegurarse de que empiece desde la parte superior */
+    left: 0;        /* Asegurarse de que empiece desde el lado izquierdo */
+    width: 100%;    /* Ancho completo */
+    height: 100%;   /* Altura completa */
+    z-index: -2;    /* Asegurarse de que esté detrás de todo */
+}
+
+#background-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle,rgba(40,21,94,0.7) 0%,rgba(0, 0, 0, 0.65) 100%);
+    z-index: 1; /* Asegúrate de que esté por encima del fondo pero detrás del contenido */
+}
+
+.pattern-triangles {
+    z-index: 0; /* Asegúrate de que los triángulos estén detrás del gradiente */
+}
+
+#background-light {
+    position: fixed; /* Mantener el fondo fijo */
+    top: 0;         /* Asegurarse de que empiece desde la parte superior */
+    left: 0;        /* Asegurarse de que empiece desde el lado izquierdo */
+    width: 100%;    /* Ancho completo */
+    height: 100%;   /* Altura completa */
+    z-index: -2;    /* Asegurarse de que esté detrás de todo */
+}
+
+#background-light::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle,rgba(255, 26, 26, 0) 0%,#f4b5e1af 100%);
+    z-index: 1; /* Asegúrate de que esté por encima del fondo pero detrás del contenido */
+}
+
+.pattern-triangles {
+    z-index: 0; /* Asegúrate de que los triángulos estén detrás del gradiente */
+}
+
+    </style>
     <header id="header" class="w-full sm:px-6">
       <div class="mx-auto" style="max-width: 54rem;">
-        <nav class="flex items-center justify-between py-4 sm:py-6 px-4">
+        <nav class="flex items-center justify-between py-4 sm:py-6 px-4 bg-[#0000006e] sm:bg-[#fff0]">
           <!-- Luna a la izquierda -->
           <button onclick="ChangeColors()" class="flex-shrink-0">
-            <svg
-              class="w-8 h-8 light_mode_moon"
-              viewBox="0 0 1024 1024"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              id="moonicon"
-              stroke="currentColor"
-              stroke-width="27.648000000000003"
-            >
-              <path
-                d="M240.448 240.448a384 384 0 1 0 559.424 525.696 448 448 0 0 1-542.016-542.08 390.592 390.592 0 0 0-17.408 16.384zm181.056 362.048a384 384 0 0 0 525.632 16.384A448 448 0 1 1 405.056 76.8a384 384 0 0 0 16.448 525.696z"
-              >
-              </path>
+            <svg class="w-8 h-8 light_mode_moon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="moonicon" stroke="currentColor" stroke-width="27.648000000000003">
+              <path d="M240.448 240.448a384 384 0 1 0 559.424 525.696 448 448 0 0 1-542.016-542.08 390.592 390.592 0 0 0-17.408 16.384zm181.056 362.048a384 384 0 0 0 525.632 16.384A448 448 0 1 1 405.056 76.8a384 384 0 0 0 16.448 525.696z"> </path>
             </svg>
           </button>
 
           <!-- Menú a la derecha -->
-          <ul
-            class="hidden sm:flex sm:flex-row sm:gap-x-8 lg:gap-x-14 text-[#0d0d0d] items-center"
-            id="nav"
-          >
+          <ul class="hidden sm:flex sm:flex-row sm:gap-x-8 lg:gap-x-10 text-[#0d0d0d] items-center" id="nav">
             <li>
-              <a
-                href="/"
-                id="aboutme"
-                class="transition-colors light_mode_ul_header "
-                >Sobre mí</a
-              >
+              <a href="/" id="aboutme" class="transition-colors light_mode_ul_header">Sobre mí</a>
             </li>
+            <!--
             <li>
               <a
                 href="/Articulos"
@@ -177,62 +198,36 @@ import "../Styles/global.css";
                 class="transition-colors light_mode_ul_header">Artículos</a
               >
             </li>
+            -->
             <li>
-              <a
-                href="/Contacto"
-                id="contact"
-                class="transition-colors light_mode_ul_header current_light">Contacto</a
-              >
+              <a href="/Contacto" id="contact" class="transition-colors light_mode_ul_header current_light">Contacto</a>
             </li>
           </ul>
 
           <!-- Menú hamburguesa para móviles -->
-          <button
-            class="sm:hidden"
-            aria-label="Abrir menú"
-            onclick="toggleMobileMenu()"
-          >
-            <svg
-              class="w-6 h-6 light_hamburger"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              id="hamburger_menu"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"></path>
+          <button class="sm:hidden" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+            <svg class="w-6 h-6 light_hamburger" stroke="currentColor" viewBox="0 0 24 24" id="hamburger_menu" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
           </button>
         </nav>
 
         <!-- Menú móvil -->
         <div id="mobileMenu" class="hidden sm:hidden">
-          <ul
-            class="flex flex-col text-[#e7e7e7] bg-[#0000009d] absolute z-10 w-full backdrop-blur"
-          >
+          <ul class="flex flex-col text-[#e7e7e7] bg-[#0000009d] absolute z-10 w-full backdrop-blur">
             <li>
-              <a
-                href="/"
-                class="block light_mode_ul_header transition-colors py-4 text-center border-b "
-                id="aboutme_mobile">Sobre mí</a
-              >
+              <a href="/" class="block light_mode_ul_header transition-colors py-4 text-center border-b" id="aboutme_mobile">Sobre mí</a>
             </li>
-            <li>
+            <!--<li>
               <a
                 href="/Articulos"
                 class="block light_mode_ul_header transition-colors py-4 text-center border-b"
                 id="articles_mobile">Artículos</a
               >
             </li>
+            -->
             <li>
-              <a
-                href="/Contacto"
-                class="block light_mode_ul_header transition-colors py-4 text-center current_mobile_light"
-                id="contact_mobile">Contacto</a
-              >
+              <a href="/Contacto" class="block light_mode_ul_header transition-colors py-4 text-center current_mobile_light" id="contact_mobile">Contacto</a>
             </li>
           </ul>
         </div>
@@ -245,148 +240,170 @@ import "../Styles/global.css";
         mobileMenu.classList.toggle("hidden");
       }
     </script>
-  <main class="max-w-4xl m-auto mt-16">
-    <div class="ml-6 mr-6">
-      
-    </div>
-  </main>
-  <script is:inline>
-      const background = document.getElementById("background");
-      const dottedbg = document.getElementById("dottedbackground");
+      <Form />
+    </main>
+    <script is:inline>
       const moonicon = document.getElementById("moonicon");
       const nav = document.getElementById("nav");
       const aboutme = document.getElementById("aboutme");
-      const articles = document.getElementById("articles");
+      //const articles = document.getElementById("articles");
       const contact = document.getElementById("contact");
 
       const aboutme_mobile = document.getElementById("aboutme_mobile");
-      const articles_mobile = document.getElementById("articles_mobile");
+      //const articles_mobile = document.getElementById("articles_mobile");
       const contact_mobile = document.getElementById("contact_mobile");
 
       const mobileMenu = document.getElementById("hamburger_menu");
 
-    window.onload = function () {
-      const savedTheme = localStorage.getItem("theme");
+      window.onload = function () {
+        const savedTheme = localStorage.getItem("theme");
 
-      if (savedTheme === "dark") {
-        body_dark(); // Aplicar tema oscuro
-        isOriginalColor = false; // Asegurarse de que el botón funcione correctamente
-      } else {
-        body_light(); // Aplicar tema claro
-        isOriginalColor = true; // Asegurarse de que el botón funcione correctamente
-      }
-    };
+        if (savedTheme === "dark") {
+          body_dark(); // Aplicar tema oscuro
+          isOriginalColor = false; // Asegurarse de que el botón funcione correctamente
+        } else {
+          body_light(); // Aplicar tema claro
+          isOriginalColor = true; // Asegurarse de que el botón funcione correctamente
+        }
+      };
 
-    function body_dark() {
-        const current_mobile_light = Array.from(
-            document.getElementsByClassName("current_mobile_light")
-          );
-          background.classList.remove("bg_light");
-          background.classList.add("bg_dark");
+      function body_dark() {
+        document.getElementById('background-dark').classList.remove('hidden');
+        document.getElementById('background-light').classList.add('hidden');
+        const current_mobile_light = Array.from(document.getElementsByClassName("current_mobile_light"));
 
-          dottedbg.classList.remove("bg_light_dotted");
-          dottedbg.classList.add("bg_dark_dotted");
+        moonicon.classList.add("dark_mode_moon");
+        moonicon.classList.remove("light_mode_moon");
+        nav.style.color = "#e7e7e7";
 
-          moonicon.classList.add("dark_mode_moon");
-          moonicon.classList.remove("light_mode_moon");
-          nav.style.color = "#e7e7e7";
+        contact.classList.add("current_dark");
+        //articles.classList.add("dark_mode_ul_header");
+        aboutme.classList.add("dark_mode_ul_header");
 
-          contact.classList.add("current_dark");
-          articles.classList.add("dark_mode_ul_header");
-          aboutme.classList.add("dark_mode_ul_header");
+        aboutme_mobile.classList.add("dark_mode_ul_header");
+        //articles_mobile.classList.add("dark_mode_ul_header");
+        contact_mobile.classList.add("dark_mode_ul_header");
 
-          aboutme_mobile.classList.add("dark_mode_ul_header");
-          articles_mobile.classList.add("dark_mode_ul_header");
-          contact_mobile.classList.add("dark_mode_ul_header");
+        contact.classList.remove("current_light");
+        //articles.classList.remove("light_mode_ul_header");
+        aboutme.classList.remove("light_mode_ul_header");
 
-          contact.classList.remove("current_light");
-          articles.classList.remove("light_mode_ul_header");
-          aboutme.classList.remove("light_mode_ul_header");
+        aboutme_mobile.classList.remove("light_mode_ul_header");
+        //articles_mobile.classList.remove("light_mode_ul_header");
+        contact_mobile.classList.remove("light_mode_ul_header");
 
-          aboutme_mobile.classList.remove("light_mode_ul_header");
-          articles_mobile.classList.remove("light_mode_ul_header");
-          contact_mobile.classList.remove("light_mode_ul_header");
+        mobileMenu.classList.add("dark_hamburger");
+        mobileMenu.classList.remove("light_hamburger");
 
-          mobileMenu.classList.add("dark_hamburger");
-          mobileMenu.classList.remove("light_hamburger");
+        for (let current_mobile_l of current_mobile_light) {
+          current_mobile_l.classList.add("current_mobile_dark");
+          current_mobile_l.classList.remove("current_mobile_light");
+        }
 
-          for (let current_mobile_l of current_mobile_light) {
-            current_mobile_l.classList.add("current_mobile_dark");
-            current_mobile_l.classList.remove("current_mobile_light");
+        const black_text = Array.from(document.getElementsByClassName("black_text"));
+
+        for (let black of black_text) {
+          black.classList.add("white_text");
+          black.classList.remove("black_text");
+        }
+
+        const form_white_text = Array.from(document.getElementsByClassName("form_white_text"));
+
+        for (let form_white of form_white_text) {
+          form_white.classList.add("form_black_text");
+          form_white.classList.remove("form_white_text");
+        }
+
+        const contact_form_black = Array.from(document.getElementsByClassName("contact_form_black"));
+
+        for (let contact_black of contact_form_black) {
+          contact_black.classList.add("contact_form_white");
+          contact_black.classList.remove("contact_form_black");
+        }
+
+        const block_white_mode = Array.from(document.getElementsByClassName("block_white_mode"));
+
+          for (let block_mode of block_white_mode) {
+            block_mode.classList.add("block_dark_mode");
+            block_mode.classList.remove("block_white_mode");
           }
-
-          const black_text = Array.from(
-            document.getElementsByClassName("black_text")
-          );
-
-          for (let black of black_text) {
-            black.classList.add("white_text");
-            black.classList.remove("black_text");
-          }
-    }
-
-    function body_light() {
-        const current_mobile_dark = Array.from(
-            document.getElementsByClassName("current_mobile_dark")
-          );
-          background.classList.remove("bg_dark");
-          background.classList.add("bg_light");
-
-          dottedbg.classList.remove("bg_dark_dotted");
-          dottedbg.classList.add("bg_light_dotted");
-
-          moonicon.classList.add("light_mode_moon");
-          moonicon.classList.remove("dark_mode_moon");
-          nav.style.color = "#0d0d0d";
-
-          contact.classList.remove("current_dark");
-          articles.classList.remove("dark_mode_ul_header");
-          aboutme.classList.remove("dark_mode_ul_header");
-
-          aboutme_mobile.classList.remove("dark_mode_ul_header");
-          articles_mobile.classList.remove("dark_mode_ul_header");
-          contact_mobile.classList.remove("dark_mode_ul_header");
-
-          contact.classList.add("current_light");
-          articles.classList.add("light_mode_ul_header");
-          aboutme.classList.add("light_mode_ul_header");
-
-          aboutme_mobile.classList.add("light_mode_ul_header");
-          articles_mobile.classList.add("light_mode_ul_header");
-          contact_mobile.classList.add("light_mode_ul_header");
-
-          mobileMenu.classList.remove("dark_hamburger");
-          mobileMenu.classList.add("light_hamburger");
-
-          for (let current_mobile_d of current_mobile_dark) {
-            current_mobile_d.classList.remove("current_mobile_dark");
-            current_mobile_d.classList.add("current_mobile_light");
-          }
-
-          const white_text = Array.from(
-            document.getElementsByClassName("white_text")
-          );
-
-          for (let white of white_text) {
-            white.classList.add("black_text");
-            white.classList.remove("white_text");
-          }
-    }
-
-    let isOriginalColor = true;
-    function ChangeColors() {
-    
-      if (isOriginalColor) {
-        localStorage.setItem("theme", "dark");
-
-        body_dark();
-      } else {
-        localStorage.setItem("theme", "light");
-
-        body_light();
       }
 
-      isOriginalColor = !isOriginalColor;
-    }
-  </script>
+      function body_light() {
+        document.getElementById('background-dark').classList.add('hidden');
+    document.getElementById('background-light').classList.remove('hidden');
+        const current_mobile_dark = Array.from(document.getElementsByClassName("current_mobile_dark"));
+        moonicon.classList.add("light_mode_moon");
+        moonicon.classList.remove("dark_mode_moon");
+        nav.style.color = "#0d0d0d";
+
+        contact.classList.remove("current_dark");
+        //articles.classList.remove("dark_mode_ul_header");
+        aboutme.classList.remove("dark_mode_ul_header");
+
+        aboutme_mobile.classList.remove("dark_mode_ul_header");
+        //articles_mobile.classList.remove("dark_mode_ul_header");
+        contact_mobile.classList.remove("dark_mode_ul_header");
+
+        contact.classList.add("current_light");
+        //articles.classList.add("light_mode_ul_header");
+        aboutme.classList.add("light_mode_ul_header");
+
+        aboutme_mobile.classList.add("light_mode_ul_header");
+        //articles_mobile.classList.add("light_mode_ul_header");
+        contact_mobile.classList.add("light_mode_ul_header");
+
+        mobileMenu.classList.remove("dark_hamburger");
+        mobileMenu.classList.add("light_hamburger");
+
+        for (let current_mobile_d of current_mobile_dark) {
+          current_mobile_d.classList.remove("current_mobile_dark");
+          current_mobile_d.classList.add("current_mobile_light");
+        }
+
+        const white_text = Array.from(document.getElementsByClassName("white_text"));
+
+        for (let white of white_text) {
+          white.classList.add("black_text");
+          white.classList.remove("white_text");
+        }
+
+        const form_black_text = Array.from(document.getElementsByClassName("form_black_text"));
+
+        for (let form_black of form_black_text) {
+          form_black.classList.add("form_white_text");
+          form_black.classList.remove("form_black_text");
+        }
+
+        const contact_form_white = Array.from(document.getElementsByClassName("contact_form_white"));
+
+        for (let contact_white of contact_form_white) {
+          contact_white.classList.remove("contact_form_white");
+          contact_white.classList.add("contact_form_black");
+        }
+
+        const block_dark_mode = Array.from(document.getElementsByClassName("block_dark_mode"));
+
+        for (let block_mode of block_dark_mode) {
+          block_mode.classList.remove("block_dark_mode");
+          block_mode.classList.add("block_white_mode");
+        }
+      }
+
+      let isOriginalColor = true;
+      function ChangeColors() {
+        if (isOriginalColor) {
+          localStorage.setItem("theme", "dark");
+
+          body_dark();
+        } else {
+          localStorage.setItem("theme", "light");
+
+          body_light();
+        }
+
+        isOriginalColor = !isOriginalColor;
+      }
+    </script>
+  </body>
 </html>

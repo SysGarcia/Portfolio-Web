@@ -13,32 +13,27 @@ import { Image } from "astro:assets";
 import Timeline from "../components/TimeLine.astro";
 import ProjectCard from "../components/projectcard.astro";
 import Footer from "../components/footer.astro";
-import Skills from '../components/skills.astro';
+import Skills from "../components/skills.astro";
 
 const technologies = [
-{
-  "name": "Python",
-  "description": "Python es uno de mis principales lenguajes de programación. He trabajado en diversos proyectos, como un convertidor de listas de reproducción de Spotify, una aplicación de radio y un rastreador de gastos mensuales."
-},
-{
-  "name": "Java",
-  "description": "Tengo experiencia enseñando Java a un alumno durante mis clases particulares en el ciclo superior de Desarrollo de Aplicaciones Multiplataforma (DAM)."
-},
-{
-  "name": "Astro",
-  "description": "He desarrollado proyectos con Astro, destacando su rapidez y eficiencia. En especial este proyecto, y la pagina web de Bastardos."
-},
-{
-  "name": "Tailwind"
-},
-{
-  "name": "HTML, CSS, JS",
-  "description": "De mis principales tecnologías, ya que son las que más he utilizado y con las que tengo mayor experiencia."
-},
-{
-  "name": "PHP",
-  "description": "Desarrollé un proyecto en PHP para una empresa de manufactura de piezas industriales."
-}
+  {
+    name: "Python",
+  },
+  {
+    name: "Java",
+  },
+  {
+    name: "HTML, CSS, JS",
+  },
+  {
+    name: "PHP",
+  },
+  {
+    name: "Tailwind",
+  },
+  {
+    name: "Astro",
+  },
 ];
 
 /*
@@ -58,8 +53,7 @@ const timelineItems = [
     dateRange: "1 Julio 2024 - Actualidad",
     title: "Clases de Programación.",
     link: "https://www.tusclases.com/",
-    description:
-      "Clases particulares de programación, especializadas en pseudocódigo, diagramas de flujo, C/C++ y el curso de Desarrollo de Aplicaciones Multiplataforma (DAM), enfocadas en Java, Bases de Datos y lenguajes de marcas.",
+    description: "Clases particulares de programación, especializadas en pseudocódigo, diagramas de flujo, C/C++ y, el curso de Desarrollo de Aplicaciones Multiplataforma (DAM), enfocadas en Java, Bases de Datos y lenguajes de marcas.",
     work: true,
   },
 
@@ -67,32 +61,28 @@ const timelineItems = [
     dateRange: "08 Septiembre 2023 - Actualidad",
     title: "Grado en Administración de sistemas informáticos en red.",
     link: "https://site.educa.madrid.org/ies.jovellanos.fuenlabrada/",
-    description:
-      "Cursando el Grado Superior en Administración de Sistemas Informáticos en Red en la siguiente dirección:Calle Móstoles, 64, 28941 Fuenlabrada, Madrid.",
+    description: "Cursando el Grado Superior en Administración de Sistemas Informáticos en Red en la siguiente dirección: Calle Móstoles, 64, 28941 Fuenlabrada, Madrid.",
     study: true,
   },
 
   {
     dateRange: "1 Julio 2024 - 30 Junio 2024",
     title: "Conserjería en una finca.",
-    description:
-      "Vigilancia y preservación de una finca de edificios ubicada en la calle: Avenida Ocho de Marzo, 9, Fuenlabrada. Entre las principales responsabilidades se incluyen la seguridad y el control de accesos al edificio, mantenimiento general, supervisión del estado de las instalaciones, y limpieza de áreas comunes. También se realizarán tareas como el cambio de cerraduras, reparaciones menores, control de sistemas de iluminación, y monitoreo de equipos de seguridad (cámaras, alarmas).",
+    description: "Vigilancia y preservación de una finca de edificios ubicada en la calle: Avenida Ocho de Marzo, 9, Fuenlabrada. Entre las principales responsabilidades se incluyen la seguridad y el control de accesos al edificio, mantenimiento general, supervisión del estado de las instalaciones, y limpieza de áreas comunes. También se realizarán tareas como el cambio de cerraduras, reparaciones menores, control de sistemas de iluminación, y monitoreo de equipos de seguridad (cámaras, alarmas).",
     work: true,
   },
   {
     dateRange: "5 Junio 2024 - 30 Junio 2024",
     title: "Mantenimiento de Piscinas.",
     link: "https://aquavic.es/",
-    description:
-      "Mantenimiento básico de piscinas: limpieza, control de cloro y pH, y pequeñas reparaciones. Servicio en piscinas distribuidas en Madrid, en particular para 5 piscinas situadas en Griñón, Humanes y Fuenlabrada.",
+    description: "Mantenimiento básico de piscinas: limpieza, control de cloro y pH, y pequeñas reparaciones. Servicio en piscinas distribuidas en Madrid, en particular para 5 piscinas situadas en Griñón, Humanes y Fuenlabrada.",
     work: true,
   },
   {
     dateRange: "08 septiembre 2021 - 21	junio 2023",
     title: "Bachillerato de Ciencias y Tecnología.",
     link: "https://site.educa.madrid.org/ies.carpediem.fuenlabrada/",
-    description:
-      "Bachillerato completado en el instituto Carpe Diem ubicado en: Av. de Nuevo Versalles, 6, 28942 Fuenlabrada, Madrid ",
+    description: "Bachillerato completado en el instituto Carpe Diem ubicado en: Av. de Nuevo Versalles, 6, 28942 Fuenlabrada, Madrid ",
     study: true,
   },
 ];
@@ -147,7 +137,6 @@ const projects = [
       body {
         margin: 0;
         padding: 0;
-        height: 100%;
       }
 
       #moonicon {
@@ -222,20 +211,12 @@ const projects = [
 
       .bg_light {
         background-color: #e7e7e7;
-        background-image: radial-gradient(
-          closest-side at 50% 50%,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(244, 181, 225, 0.5) 100%
-        );
+        background-image: radial-gradient(closest-side at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(244, 181, 225, 0.5) 100%);
       }
 
       .bg_dark {
         background-color: #28155e;
-        background-image: radial-gradient(
-          closest-side at 50% 50%,
-          hsla(0, 96.5%, 44.9%, 0) 0%,
-          rgba(0, 0, 0, 0.5) 100%
-        );
+        background-image: radial-gradient(closest-side at 50% 50%, hsla(0, 96.5%, 44.9%, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
       }
 
       .bg_light_dotted {
@@ -325,7 +306,6 @@ const projects = [
       .habilitiesicon_dark {
         fill: #fff;
       }
-
 
       .white_text {
         color: #fff;
@@ -460,57 +440,32 @@ const projects = [
       }
     </style>
 
-   <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   <script is:inline src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script> <!-- Versión más reciente del plugin -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <!-- Versión más reciente del plugin -->
   </head>
 
   <body class="font-CoolVetica font-light">
-    <div
-      id="background"
-      class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform bg_light"
-    >
-    </div>
+    <div id="background" class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform bg_light"></div>
 
-    <div
-      id="dottedbackground"
-      class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%, #0d0d0d_70%,transparent_100%)]"
-    >
-    </div>
+    <div id="dottedbackground" class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%, #0d0d0d_70%,transparent_100%)]"></div>
 
     <header id="header" class="w-full sm:px-6">
       <div class="mx-auto" style="max-width: 54rem;">
-        <nav class="flex items-center justify-between py-4 sm:py-6 px-4">
+        <nav class="flex items-center justify-between py-4 sm:py-6 px-4 bg-[#0000006e] sm:bg-[#fff0]">
           <!-- Luna a la izquierda -->
           <button onclick="ChangeColors()" class="flex-shrink-0">
-            <svg
-              class="w-8 h-8 light_mode_moon"
-              viewBox="0 0 1024 1024"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              id="moonicon"
-              stroke="currentColor"
-              stroke-width="27.648000000000003"
-            >
-              <path
-                d="M240.448 240.448a384 384 0 1 0 559.424 525.696 448 448 0 0 1-542.016-542.08 390.592 390.592 0 0 0-17.408 16.384zm181.056 362.048a384 384 0 0 0 525.632 16.384A448 448 0 1 1 405.056 76.8a384 384 0 0 0 16.448 525.696z"
-              >
-              </path>
+            <svg class="w-8 h-8 light_mode_moon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="moonicon" stroke="currentColor" stroke-width="27.648000000000003">
+              <path d="M240.448 240.448a384 384 0 1 0 559.424 525.696 448 448 0 0 1-542.016-542.08 390.592 390.592 0 0 0-17.408 16.384zm181.056 362.048a384 384 0 0 0 525.632 16.384A448 448 0 1 1 405.056 76.8a384 384 0 0 0 16.448 525.696z"> </path>
             </svg>
           </button>
 
           <!-- Menú a la derecha -->
-          <ul
-            class="hidden sm:flex sm:flex-row sm:gap-x-8 lg:gap-x-14 text-[#0d0d0d] items-center"
-            id="nav"
-          >
+          <ul class="hidden sm:flex sm:flex-row sm:gap-x-8 lg:gap-x-10 text-[#0d0d0d] items-center" id="nav">
             <li>
-              <a
-                href="/"
-                id="aboutme"
-                class="transition-colors light_mode_ul_header current_light"
-                >Sobre mí</a
-              >
+              <a href="/" id="aboutme" class="transition-colors light_mode_ul_header current_light">Sobre mí</a>
             </li>
+            <!-- 
             <li>
               <a
                 href="/Articulos"
@@ -518,49 +473,27 @@ const projects = [
                 class="transition-colors light_mode_ul_header">Artículos</a
               >
             </li>
+            -->
             <li>
-              <a
-                href="/Contacto"
-                id="contact"
-                class="transition-colors light_mode_ul_header">Contacto</a
-              >
+              <a href="/Contacto" id="contact" class="transition-colors light_mode_ul_header">Contacto</a>
             </li>
           </ul>
 
           <!-- Menú hamburguesa para móviles -->
-          <button
-            class="sm:hidden"
-            aria-label="Abrir menú"
-            onclick="toggleMobileMenu()"
-          >
-            <svg
-              class="w-6 h-6 light_hamburger"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              id="hamburger_menu"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"></path>
+          <button class="sm:hidden" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+            <svg class="w-6 h-6 light_hamburger" stroke="currentColor" viewBox="0 0 24 24" id="hamburger_menu" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
           </button>
         </nav>
 
         <!-- Menú móvil -->
         <div id="mobileMenu" class="hidden sm:hidden">
-          <ul
-            class="flex flex-col text-[#e7e7e7] bg-[#0000009d] absolute z-10 w-full backdrop-blur"
-          >
+          <ul class="flex flex-col text-[#e7e7e7] bg-[#0000009d] absolute z-10 w-full backdrop-blur">
             <li>
-              <a
-                href="/"
-                class="block light_mode_ul_header transition-colors py-4 text-center border-b current_mobile_light"
-                id="aboutme_mobile">Sobre mí</a
-              >
+              <a href="/" class="block light_mode_ul_header transition-colors py-4 text-center border-b current_mobile_light" id="aboutme_mobile">Sobre mí</a>
             </li>
+            <!-- 
             <li>
               <a
                 href="/Articulos"
@@ -568,12 +501,9 @@ const projects = [
                 id="articles_mobile">Artículos</a
               >
             </li>
+            -->
             <li>
-              <a
-                href="/Contacto"
-                class="block light_mode_ul_header transition-colors py-4 text-center"
-                id="contact_mobile">Contacto</a
-              >
+              <a href="/Contacto" class="block light_mode_ul_header transition-colors py-4 text-center" id="contact_mobile">Contacto</a>
             </li>
           </ul>
         </div>
@@ -588,95 +518,35 @@ const projects = [
     </script>
     <main class="max-w-4xl m-auto mt-16" tabindex="-1">
       <div class="ml-6 mr-6">
-        <h1
-          class="text-5xl sm:text-6xl text-[#0d0d0d] animate-bounce animate-once animate-ease-in-out animate-fill-both flex flex-row gap-x-3 items-center"
-          id="title_name"
-        >
-          <Image
-            src={imagen_isaac}
-            class="w-20 rounded-full border-2 border-[#4819ca]"
-            alt="Foto de perfil de Isaac García"
-            loading="eager"
-          /> Isaac García
+        <h1 class="text-5xl sm:text-6xl text-[#0d0d0d] animate-bounce animate-once animate-ease-in-out animate-fill-both flex flex-row gap-x-3 items-center" id="title_name">
+          <Image src={imagen_isaac} class="w-20 rounded-full border-2 border-[#4819ca]" alt="Foto de perfil de Isaac García" loading="eager" /> Isaac García
         </h1>
-        <span
-          class="inline-flex items-center justify-center px-2 py-1 bg-[#4819ca] rounded text-sm text-stone-100 align-middle max-w-52"
-          style="line-height: 1.2"
-        >
-          <svg
-            class="w-4 h-4 fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
+        <span class="inline-flex items-center justify-center px-2 py-1 bg-[#4819ca] rounded text-sm text-stone-100 align-middle max-w-52" style="line-height: 1.2">
+          <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path
-              d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"
-            >
-            </path>
+            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"> </path>
           </svg>
           <span class="ml-1">¡Disponible para trabajar!</span>
         </span>
         <div class="mt-2">
           <p class="text-2xl" id="title_text">
-            <span class="light_inside_title_text" id="inside_title_text"
-              >Técnico en Administración de sistemas informáticos en red</span
-            >. De Madrid, España. Especializado en convertir ideas a la <span
-              class="underline decoration-wavy decoration-2 underline_light"
-              id="unique_underline">realidad</span
-            >.
+            <span class="light_inside_title_text" id="inside_title_text">Técnico en Administración de sistemas informáticos en red</span>. De Madrid, España. Especializado en convertir ideas a la <span class="underline decoration-wavy decoration-2 underline_light" id="unique_underline">realidad</span>.
           </p>
           <div class="icon-bar mt-1 flex">
             <div class="icon-container">
-              <button
-                onclick="window.open('https://github.com/Wolfuliam','_blank');"
-                type="button"
-              >
-                <svg
-                  class="main-icon github_light"
-                  viewBox="0 0 1792 1792"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="githubicon"
-                  fill="CurrentColor"
-                >
-                  <path
-                    d="M1664 896q0 251-146.5 451.5t-378.5 277.5q-27 5-39.5-7t-12.5-30v-211q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 89t.5 54q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"
-                  ></path>
+              <button onclick="window.open('https://github.com/Wolfuliam','_blank');" type="button">
+                <svg class="main-icon github_light" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg" id="githubicon" fill="CurrentColor">
+                  <path d="M1664 896q0 251-146.5 451.5t-378.5 277.5q-27 5-39.5-7t-12.5-30v-211q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 89t.5 54q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"></path>
                 </svg>
-                <svg
-                  class="external-icon animate-wiggle-more animate-infinite animate-ease-in-out animate-normal animate-fill-both"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    class="external_light"
-                    id="first_external"
-                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
-                    stroke="#000000"
-                    stroke-width="1.56"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                  </path>
+                <svg class="external-icon animate-wiggle-more animate-infinite animate-ease-in-out animate-normal animate-fill-both" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="external_light" id="first_external" d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11" stroke="#000000" stroke-width="1.56" stroke-linecap="round" stroke-linejoin="round"> </path>
                 </svg>
               </button>
             </div>
 
             <div class="icon-container">
-              <button
-                onclick="window.open('https://www.linkedin.com/in/isaac-garc%C3%ADa-dur%C3%A1n-379121310/','_blank');"
-                type="button"
-              >
-                <svg
-                  class="main-icon w-5 h-5 linkedin_light"
-                  fill="#000000"
-                  version="1.1"
-                  id="linkedinicon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 0 48 48"
-                  xml:space="preserve"
-                >
+              <button onclick="window.open('https://www.linkedin.com/in/isaac-garc%C3%ADa-dur%C3%A1n-379121310/','_blank');" type="button">
+                <svg class="main-icon w-5 h-5 linkedin_light" fill="#000000" version="1.1" id="linkedinicon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" xml:space="preserve">
                   <style type="text/css">
                     .st0 {
                       fill: none;
@@ -684,142 +554,52 @@ const projects = [
                   </style>
                   <g>
                     <path class="st0" d="M0,0h48v48H0V0z"></path>
-                    <path
-                      d="M34,4H14C8.5,4,4,8.5,4,14v20c0,5.5,4.5,10,10,10h20c5.5,0,10-4.5,10-10V14C44,8.5,39.5,4,34,4z M17,35h-4V20h4V35z M15,17    c-1.1,0-2-0.9-2-2c0-1.1,0.9-2,2-2s2,0.9,2,2C17,16.1,16.1,17,15,17z M35,35h-4v-7.5c0-2.5-1-3.6-3-3.6L24,24v11h-4V20l8-0.2    c3.4,0,7,2,7,7.6V35z"
-                    ></path>
+                    <path d="M34,4H14C8.5,4,4,8.5,4,14v20c0,5.5,4.5,10,10,10h20c5.5,0,10-4.5,10-10V14C44,8.5,39.5,4,34,4z M17,35h-4V20h4V35z M15,17    c-1.1,0-2-0.9-2-2c0-1.1,0.9-2,2-2s2,0.9,2,2C17,16.1,16.1,17,15,17z M35,35h-4v-7.5c0-2.5-1-3.6-3-3.6L24,24v11h-4V20l8-0.2    c3.4,0,7,2,7,7.6V35z"></path>
                   </g>
                 </svg>
-                <svg
-                  class="external-icon animate-wiggle-more animate-infinite animate-ease-in-out animate-normal animate-fill-both w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    class="external_light"
-                    id="second_external"
-                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
-                    stroke="#000000"
-                    stroke-width="1.56"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                  </path>
+                <svg class="external-icon animate-wiggle-more animate-infinite animate-ease-in-out animate-normal animate-fill-both w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="external_light" id="second_external" d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11" stroke="#000000" stroke-width="1.56" stroke-linecap="round" stroke-linejoin="round"> </path>
                 </svg>
               </button>
             </div>
             <div class="icon-container">
-              <button
-                onclick="window.open('Cv_Isaac_Garcia.pdf', '_blank');"
-                type="button"
-              >
-                <svg
-                  class="main-icon paperclip_light"
-                  viewBox="0 0 24 24"
-                  role="img"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="paperclipicon"
-                  aria-labelledby="paperclipIconTitle"
-                  stroke="#000000"
-                  stroke-width="1.5"
-                  stroke-linecap="square"
-                  stroke-linejoin="miter"
-                  fill="none"
-                  color="#000000"
-                >
+              <button onclick="window.open('Cv_Isaac_Garcia.pdf', '_blank');" type="button">
+                <svg class="main-icon paperclip_light" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" id="paperclipicon" aria-labelledby="paperclipIconTitle" stroke="#000000" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000000">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g
-                    id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
                     <title id="paperclipIconTitle">CV</title>
-                    <path
-                      d="M7.93517339,13.7795989 L15.1617306,6.55304173 C16.03921,5.67631227 17.4656766,5.67631227 18.343156,6.55304173 C19.2206355,7.43052116 19.2206355,8.85773771 18.343156,9.73521714 L8.40091248,19.5477137 C6.93619681,21.0124294 4.56325242,21.0124294 3.09853675,19.5477137 C1.63382108,18.083748 1.63382108,15.7093037 3.09853675,14.245338 L12.9335328,4.53783896 C14.9839848,2.48738701 18.3094068,2.48738701 20.3568588,4.53783896 C22.4088107,6.58904088 22.4088107,9.91146301 20.3583588,11.961915 L13.2390491,19.0819746"
-                    >
-                    </path>
+                    <path d="M7.93517339,13.7795989 L15.1617306,6.55304173 C16.03921,5.67631227 17.4656766,5.67631227 18.343156,6.55304173 C19.2206355,7.43052116 19.2206355,8.85773771 18.343156,9.73521714 L8.40091248,19.5477137 C6.93619681,21.0124294 4.56325242,21.0124294 3.09853675,19.5477137 C1.63382108,18.083748 1.63382108,15.7093037 3.09853675,14.245338 L12.9335328,4.53783896 C14.9839848,2.48738701 18.3094068,2.48738701 20.3568588,4.53783896 C22.4088107,6.58904088 22.4088107,9.91146301 20.3583588,11.961915 L13.2390491,19.0819746"> </path>
                   </g>
                 </svg>
-                <svg
-                  class="external-icon animate-wiggle-more animate-infinite animate-ease-in-out animate-normal animate-fill-both"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    class="external_light"
-                    id="third_external"
-                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
-                    stroke="#000000"
-                    stroke-width="1.56"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                  </path>
+                <svg class="external-icon animate-wiggle-more animate-infinite animate-ease-in-out animate-normal animate-fill-both" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="external_light" id="third_external" d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11" stroke="#000000" stroke-width="1.56" stroke-linecap="round" stroke-linejoin="round"> </path>
                 </svg>
               </button>
             </div>
           </div>
         </div>
         <div class="mt-10 border-0">
-          <h1
-            class="text-4xl flex flex-row items-center gap-2"
-            id="experience_studies"
-          >
-            <svg
-              class="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0"
-              id="workicon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              ><path
-                d="m6.314 18.022 5 4.707a1 1 0 0 0 1.372 0l5-4.707a1 1 0 0 0 .28-.985L15.091 6.212 17.8 2.6A1 1 0 0 0 17 1H7a1 1 0 0 0-.8 1.6l2.709 3.612-2.875 10.825a1 1 0 0 0 .28.985zM15 3l-1.5 2h-3L9 3zm-4.231 4h2.462l2.649 9.975L12 20.627l-3.88-3.652z"
-              ></path></svg
-            >
+          <h1 class="text-4xl flex flex-row items-center gap-2" id="experience_studies">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" id="workicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m6.314 18.022 5 4.707a1 1 0 0 0 1.372 0l5-4.707a1 1 0 0 0 .28-.985L15.091 6.212 17.8 2.6A1 1 0 0 0 17 1H7a1 1 0 0 0-.8 1.6l2.709 3.612-2.875 10.825a1 1 0 0 0 .28.985zM15 3l-1.5 2h-3L9 3zm-4.231 4h2.462l2.649 9.975L12 20.627l-3.88-3.652z"></path></svg>
 
             Experiencia laboral y Formación.
           </h1>
           <Timeline items={timelineItems} />
           <h1 class="text-4xl black_text flex flex-row items-center gap-2">
-            <svg
-              class="w-7 h-7 sm:w-8 sm:h-8"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
-                ><path
-                  id="projectsicon"
-                  stroke="#000000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9.5 5H9a2 2 0 0 0-2 2v2c0 1-.6 3-3 3 1 0 3 .6 3 3v2a2 2 0 0 0 2 2h.5m5-14h.5a2 2 0 0 1 2 2v2c0 1 .6 3 3 3-1 0-3 .6-3 3v2a2 2 0 0 1-2 2h-.5"
-                ></path></g
-              ></svg
-            >Proyectos.
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="projectsicon" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.5 5H9a2 2 0 0 0-2 2v2c0 1-.6 3-3 3 1 0 3 .6 3 3v2a2 2 0 0 0 2 2h.5m5-14h.5a2 2 0 0 1 2 2v2c0 1 .6 3 3 3-1 0-3 .6-3 3v2a2 2 0 0 1-2 2h-.5"></path></g></svg>Proyectos.
           </h1>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {
-              projects.map((project) => (
-                <ProjectCard
-                  title={project.title}
-                  imageUrl={project.imageUrl}
-                  githubLink={project.githubLink}
-                  liveLink={project.liveLink}
-                />
-              ))
-            }
+            {projects.map((project) => <ProjectCard title={project.title} imageUrl={project.imageUrl} githubLink={project.githubLink} liveLink={project.liveLink} />)}
           </div>
         </div>
         <h1 class="text-4xl flex flex-row items-center gap-3 white_text my-3" id="experience_studies">
           <svg id="habilitiesicon" class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/>
-          </svg> 
+            <path d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"></path>
+          </svg>
           Habilidades.
-        </h1> 
+        </h1>
         <canvas id="myChart" style="display: block; width: 100%; height: auto;"></canvas>
         <Skills technologies={technologies} />
         <Footer />
@@ -827,7 +607,6 @@ const projects = [
     </main>
   </body>
   <script is:inline>
-
     const title_name = document.getElementById("title_name");
     const title_text = document.getElementById("title_text");
     const unique_underline = document.getElementById("unique_underline");
@@ -850,23 +629,23 @@ const projects = [
     const moonicon = document.getElementById("moonicon");
     const nav = document.getElementById("nav");
     const aboutme = document.getElementById("aboutme");
-    const articles = document.getElementById("articles");
+
+    //const articles = document.getElementById("articles");
+
     const contact = document.getElementById("contact");
 
     const aboutme_mobile = document.getElementById("aboutme_mobile");
-    const articles_mobile = document.getElementById("articles_mobile");
+    //const articles_mobile = document.getElementById("articles_mobile");
     const contact_mobile = document.getElementById("contact_mobile");
 
     const mobileMenu = document.getElementById("hamburger_menu");
 
-    const habilitiesicon = document.getElementById("habilitiesicon")
+    const habilitiesicon = document.getElementById("habilitiesicon");
 
-    const isaac_portfolio = document.getElementById("isaac_portfolio")
+    const isaac_portfolio = document.getElementById("isaac_portfolio");
 
     function body_dark() {
-      const current_mobile_light = Array.from(
-        document.getElementsByClassName("current_mobile_light")
-      );
+      const current_mobile_light = Array.from(document.getElementsByClassName("current_mobile_light"));
 
       background.classList.remove("bg_light");
       background.classList.add("bg_dark");
@@ -879,19 +658,19 @@ const projects = [
       nav.style.color = "#e7e7e7";
 
       aboutme.classList.add("current_dark");
-      articles.classList.add("dark_mode_ul_header");
+      //articles.classList.add("dark_mode_ul_header");
       contact.classList.add("dark_mode_ul_header");
 
       aboutme_mobile.classList.add("dark_mode_ul_header");
-      articles_mobile.classList.add("dark_mode_ul_header");
+      //articles_mobile.classList.add("dark_mode_ul_header");
       contact_mobile.classList.add("dark_mode_ul_header");
 
       aboutme.classList.remove("current_light");
-      articles.classList.remove("light_mode_ul_header");
+      //articles.classList.remove("light_mode_ul_header");
       contact.classList.remove("light_mode_ul_header");
 
       aboutme_mobile.classList.remove("light_mode_ul_header");
-      articles_mobile.classList.remove("light_mode_ul_header");
+      //articles_mobile.classList.remove("light_mode_ul_header");
       contact_mobile.classList.remove("light_mode_ul_header");
 
       mobileMenu.classList.add("dark_hamburger");
@@ -903,24 +682,12 @@ const projects = [
       }
 
       const dots = Array.from(document.getElementsByClassName("light_dot"));
-      const timespan = Array.from(
-        document.getElementsByClassName("light_span")
-      );
-      const black_text = Array.from(
-        document.getElementsByClassName("black_text")
-      );
-      const black_text_inside = Array.from(
-        document.getElementsByClassName("black_text_inside")
-      );
-      const blue_links = Array.from(
-        document.getElementsByClassName("blue_links")
-      );
-      const suitcaseicon = Array.from(
-        document.getElementsByClassName("suitcaseicon_light")
-      );
-      const bookicon = Array.from(
-        document.getElementsByClassName("bookicon_light")
-      );
+      const timespan = Array.from(document.getElementsByClassName("light_span"));
+      const black_text = Array.from(document.getElementsByClassName("black_text"));
+      const black_text_inside = Array.from(document.getElementsByClassName("black_text_inside"));
+      const blue_links = Array.from(document.getElementsByClassName("blue_links"));
+      const suitcaseicon = Array.from(document.getElementsByClassName("suitcaseicon_light"));
+      const bookicon = Array.from(document.getElementsByClassName("bookicon_light"));
 
       title_name.style.color = "#e7e7e7";
       title_text.style.color = "#e7e7e7";
@@ -1000,18 +767,14 @@ const projects = [
         book.classList.add("bookicon_dark");
       }
 
-      const button_light = Array.from(
-        document.getElementsByClassName("button_light")
-      );
+      const button_light = Array.from(document.getElementsByClassName("button_light"));
 
       for (let button of button_light) {
         button.classList.remove("button_light");
         button.classList.add("button_dark");
       }
 
-      const decoration_light = Array.from(
-        document.getElementsByClassName("decoration-light")
-      );
+      const decoration_light = Array.from(document.getElementsByClassName("decoration-light"));
 
       for (let decoration of decoration_light) {
         decoration.classList.remove("decoration-light");
@@ -1020,9 +783,7 @@ const projects = [
     }
 
     function body_light() {
-      const current_mobile_dark = Array.from(
-        document.getElementsByClassName("current_mobile_dark")
-      );
+      const current_mobile_dark = Array.from(document.getElementsByClassName("current_mobile_dark"));
       background.classList.remove("bg_dark");
       background.classList.add("bg_light");
 
@@ -1034,19 +795,19 @@ const projects = [
       nav.style.color = "#0d0d0d";
 
       aboutme.classList.remove("current_dark");
-      articles.classList.remove("dark_mode_ul_header");
+      //articles.classList.remove("dark_mode_ul_header");
       contact.classList.remove("dark_mode_ul_header");
 
       aboutme_mobile.classList.remove("dark_mode_ul_header");
-      articles_mobile.classList.remove("dark_mode_ul_header");
+      //articles_mobile.classList.remove("dark_mode_ul_header");
       contact_mobile.classList.remove("dark_mode_ul_header");
 
       aboutme.classList.add("current_light");
-      articles.classList.add("light_mode_ul_header");
+      //articles.classList.add("light_mode_ul_header");
       contact.classList.add("light_mode_ul_header");
 
       aboutme_mobile.classList.add("light_mode_ul_header");
-      articles_mobile.classList.add("light_mode_ul_header");
+      //articles_mobile.classList.add("light_mode_ul_header");
       contact_mobile.classList.add("light_mode_ul_header");
 
       mobileMenu.classList.remove("dark_hamburger");
@@ -1059,21 +820,11 @@ const projects = [
 
       const dots = Array.from(document.getElementsByClassName("dark_dot"));
       const timespan = Array.from(document.getElementsByClassName("dark_span"));
-      const white_text = Array.from(
-        document.getElementsByClassName("white_text")
-      );
-      const white_text_inside = Array.from(
-        document.getElementsByClassName("white_text_inside")
-      );
-      const blue_links = Array.from(
-        document.getElementsByClassName("dark_blue_links")
-      );
-      const suitcaseicon = Array.from(
-        document.getElementsByClassName("suitcaseicon_dark")
-      );
-      const bookicon = Array.from(
-        document.getElementsByClassName("bookicon_dark")
-      );
+      const white_text = Array.from(document.getElementsByClassName("white_text"));
+      const white_text_inside = Array.from(document.getElementsByClassName("white_text_inside"));
+      const blue_links = Array.from(document.getElementsByClassName("dark_blue_links"));
+      const suitcaseicon = Array.from(document.getElementsByClassName("suitcaseicon_dark"));
+      const bookicon = Array.from(document.getElementsByClassName("bookicon_dark"));
 
       title_name.style.color = "#0d0d0d";
       title_text.style.color = "#0d0d0d";
@@ -1112,7 +863,7 @@ const projects = [
 
       isaac_portfolio.classList.remove("isaac_portfolio_dark");
       isaac_portfolio.classList.add("isaac_portfolio_light");
-      
+
       experience_studies.style.color = "#0d0d0d";
 
       const dotsCopy = [...dots];
@@ -1153,18 +904,14 @@ const projects = [
         book.classList.remove("bookicon_dark");
       }
 
-      const button_dark = Array.from(
-        document.getElementsByClassName("button_dark")
-      );
+      const button_dark = Array.from(document.getElementsByClassName("button_dark"));
 
       for (let button of button_dark) {
         button.classList.remove("button_dark");
         button.classList.add("button_light");
       }
 
-      const decoration_dark = Array.from(
-        document.getElementsByClassName("decoration-dark")
-      );
+      const decoration_dark = Array.from(document.getElementsByClassName("decoration-dark"));
 
       for (let decoration of decoration_dark) {
         decoration.classList.remove("decoration-dark");
@@ -1204,139 +951,140 @@ const projects = [
 
     // Función para ajustar la relación de aspecto según el ancho de la ventana
     function adjustCanvasAspectRatio() {
-        if (window.innerWidth < 600) {
-            canvas.style.height = '38vh'; // Establece una altura dinámica basada en la vista (50% del viewport height)
-        } else {
-            canvas.style.height = '32vh'; // Menor altura para pantallas grandes
-        }
+      if (window.innerWidth < 600) {
+        canvas.style.height = "38vh"; // Establece una altura dinámica basada en la vista (50% del viewport height)
+      } else {
+        canvas.style.height = "32vh"; // Menor altura para pantallas grandes
+      }
     }
 
     // Ejecuta la función inicialmente
     adjustCanvasAspectRatio();
 
     // También ejecuta la función cuando se redimensiona la ventana
-    window.addEventListener('resize', adjustCanvasAspectRatio);
+    window.addEventListener("resize", adjustCanvasAspectRatio);
 
     const data = {
-        datasets: [{
-            label: 'Tabla de habilidades',
-            data: [
-                { x: 0, y: 7.5, label: 'Python' },
-                { x: 1, y: 6, label: 'Java' },
-                { x: 2, y: 6, label: 'Astro' },
-                { x: 3, y: 8, label: 'Tailwind' },
-                { x: 4, y: 9, label: 'HTML' },
-                { x: 5, y: 9, label: 'CSS' },
-                { x: 6, y: 7, label: 'JS' },
-                { x: 7, y: 8, label: 'PHP' },
-            ],
-            backgroundColor: 'rgba(72, 25, 202, 0.2)', // Color de fondo inicial
-            borderColor: 'rgb(72, 25, 202)', // Color de borde inicial
-            borderWidth: 2,
-            pointBorderColor: '#fff',
-            pointBackgroundColor: 'rgb(72, 25, 202)',
-            pointHoverBorderColor: 'rgb(72, 25, 202)',
-            pointHoverBackgroundColor: '#fff',
-            fill: true,
-        }]
+      datasets: [
+        {
+          label: "Tabla de habilidades",
+          data: [
+            { x: 0, y: 7.5, label: "Python" },
+            { x: 1, y: 6, label: "Java" },
+            { x: 2, y: 6, label: "Astro" },
+            { x: 3, y: 8, label: "Tailwind" },
+            { x: 4, y: 9, label: "HTML" },
+            { x: 5, y: 9, label: "CSS" },
+            { x: 6, y: 7, label: "JS" },
+            { x: 7, y: 8, label: "PHP" },
+          ],
+          backgroundColor: "rgba(72, 25, 202, 0.2)", // Color de fondo inicial
+          borderColor: "rgb(72, 25, 202)", // Color de borde inicial
+          borderWidth: 2,
+          pointBorderColor: "#fff",
+          pointBackgroundColor: "rgb(72, 25, 202)",
+          pointHoverBorderColor: "rgb(72, 25, 202)",
+          pointHoverBackgroundColor: "#fff",
+          fill: true,
+        },
+      ],
     };
 
-    let labelColor = 'black'; // Color inicial de las etiquetas
-    let backgroundColor = 'rgba(72, 25, 202, 0.2)'; // Color inicial del fondo
-    let borderColor = 'rgb(72, 25, 202)'; // Color inicial del borde
+    let labelColor = "black"; // Color inicial de las etiquetas
+    let backgroundColor = "rgba(72, 25, 202, 0.2)"; // Color inicial del fondo
+    let borderColor = "rgb(72, 25, 202)"; // Color inicial del borde
 
     const config = {
-        type: 'line',
-        data: data,
-        options: {
-            plugins: {
-                datalabels: {
-                    display: true,
-                    color: labelColor,
-                    anchor: 'end',
-                    align: 'top',
-                    formatter: function(value) {
-                        return value.label ? value.label : '';
-                    }
-                },
-                legend: {
-                    display: true,
-                    position: 'bottom'
-                }
+      type: "line",
+      data: data,
+      options: {
+        plugins: {
+          datalabels: {
+            display: true,
+            color: labelColor,
+            anchor: "end",
+            align: "top",
+            formatter: function (value) {
+              return value.label ? value.label : "";
             },
-            scales: {
-              x: {
-                    min: -0.2,
-                    max: 7.2,
-                    type: 'linear',
-                    position: 'bottom',
-                    ticks: {
-                        // Ocultar las etiquetas de los ticks
-                        callback: function(value, index, values) {
-                            if (value === -0.2 || value === 7.2) {
-                                return ''; // Oculta las etiquetas en -0.2 y 7.2
-                            }
-                            return value; // Muestra las demás etiquetas
-                        }
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    min: 0,
-                    max: 10,
-                    ticks: {
-                        stepSize: 1
-                    }
-                }
-            }
+          },
+          legend: {
+            display: true,
+            position: "bottom",
+          },
         },
-        plugins: [ChartDataLabels]
+        scales: {
+          x: {
+            min: -0.2,
+            max: 7.2,
+            type: "linear",
+            position: "bottom",
+            ticks: {
+              // Ocultar las etiquetas de los ticks
+              callback: function (value, index, values) {
+                if (value === -0.2 || value === 7.2) {
+                  return ""; // Oculta las etiquetas en -0.2 y 7.2
+                }
+                return value; // Muestra las demás etiquetas
+              },
+            },
+          },
+          y: {
+            beginAtZero: true,
+            min: 0,
+            max: 10,
+            ticks: {
+              stepSize: 1,
+            },
+          },
+        },
+      },
+      plugins: [ChartDataLabels],
     };
 
     var myChart = new Chart(ctx, config);
 
     function updateChartColors(isOriginalColor) {
-        // Actualiza el color de las etiquetas, fondo, y borde del gráfico según el estado del tema
-        labelColor = isOriginalColor ? 'black' : 'white';
-        backgroundColor = isOriginalColor ? 'rgba(72, 25, 202, 0.2)' : 'rgb(234, 201, 70, 0.2)'; // Cambia el color de fondo
-        borderColor = isOriginalColor ? 'rgb(72, 25, 202)' : 'rgb(234, 201, 70)'; // Cambia el color del borde
+      // Actualiza el color de las etiquetas, fondo, y borde del gráfico según el estado del tema
+      labelColor = isOriginalColor ? "black" : "white";
+      backgroundColor = isOriginalColor ? "rgba(72, 25, 202, 0.2)" : "rgb(234, 201, 70, 0.2)"; // Cambia el color de fondo
+      borderColor = isOriginalColor ? "rgb(72, 25, 202)" : "rgb(234, 201, 70)"; // Cambia el color del borde
 
-        myChart.options.plugins.datalabels.color = labelColor;
-        myChart.data.datasets[0].backgroundColor = backgroundColor;
-        myChart.data.datasets[0].borderColor = borderColor;
-        myChart.update();
+      myChart.options.plugins.datalabels.color = labelColor;
+      myChart.data.datasets[0].backgroundColor = backgroundColor;
+      myChart.data.datasets[0].borderColor = borderColor;
+      myChart.update();
     }
 
     // Llama a esta función en función del estado del tema
     function ChangeColors() {
-        if (isOriginalColor) {
-            body_dark();
-            localStorage.setItem("theme", "dark"); // Guardar estado oscuro
-        } else {
-            body_light();
-            localStorage.setItem("theme", "light");
-        }
+      if (isOriginalColor) {
+        body_dark();
+        localStorage.setItem("theme", "dark"); // Guardar estado oscuro
+      } else {
+        body_light();
+        localStorage.setItem("theme", "light");
+      }
 
-        isOriginalColor = !isOriginalColor;
+      isOriginalColor = !isOriginalColor;
 
-        // Actualizar el color de las etiquetas, fondo, y borde del gráfico después de cambiar el tema
-        updateChartColors(isOriginalColor);
+      // Actualizar el color de las etiquetas, fondo, y borde del gráfico después de cambiar el tema
+      updateChartColors(isOriginalColor);
     }
 
     window.onload = function () {
-        const savedTheme = localStorage.getItem("theme");
+      const savedTheme = localStorage.getItem("theme");
 
-        if (savedTheme === "dark") {
-            body_dark(); // Aplicar tema oscuro
-            isOriginalColor = false; // Asegurarse de que el botón funcione correctamente
-        } else {
-            body_light(); // Aplicar tema claro
-            isOriginalColor = true; // Asegurarse de que el botón funcione correctamente
-        }
+      if (savedTheme === "dark") {
+        body_dark(); // Aplicar tema oscuro
+        isOriginalColor = false; // Asegurarse de que el botón funcione correctamente
+      } else {
+        body_light(); // Aplicar tema claro
+        isOriginalColor = true; // Asegurarse de que el botón funcione correctamente
+      }
 
-        // Actualizar el color de las etiquetas, fondo, y borde del gráfico según el tema guardado
-        updateChartColors(isOriginalColor);
+      // Actualizar el color de las etiquetas, fondo, y borde del gráfico según el tema guardado
+      updateChartColors(isOriginalColor);
     };
-</script>
-
+  </script>
 </html>
