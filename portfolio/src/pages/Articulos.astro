@@ -94,16 +94,16 @@ import "../Styles/global.css";
       }
 
       .bg_light {
-          background-color: #e7e7e7 ;
-          background-image: radial-gradient(closest-side at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(244, 181, 225, 0.5) 100%) ;
+        background-color: #e7e7e7;
+        background-image: radial-gradient(closest-side at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(244, 181, 225, 0.5) 100%);
       }
 
-      .bg_dark{
-          background-color: #28155e ;
-          background-image: radial-gradient(closest-side at 50% 50%, hsla(0, 96.5%, 44.9%, 0) 0%, rgba(0, 0, 0, 0.5) 100%) ;
-}
+      .bg_dark {
+        background-color: #28155e;
+        background-image: radial-gradient(closest-side at 50% 50%, hsla(0, 96.5%, 44.9%, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+      }
 
-      .bg_light_dotted{
+      .bg_light_dotted {
         background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
       }
 
@@ -111,120 +111,63 @@ import "../Styles/global.css";
         background-image: radial-gradient(#0c172d 1px, transparent 1px);
       }
 
+      .white_text {
+        color: #fff;
+      }
+
+      .black_text {
+        color: #0d0d0d;
+      }
     </style>
   </head>
 
   <body class="font-CoolVetica font-light">
-    <div
-    id="background"
-    class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform bg_light"
-  >
-  </div>
-  
-  <div
-    id="dottedbackground"
-    class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%, #0d0d0d_70%,transparent_100%)]"
-  >
-  </div>
-  
+    <div id="background" class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform bg_light"></div>
+
+    <div id="dottedbackground" class="fixed top-0 z-[-2] h-screen w-screen rotate-180 transform [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%, #0d0d0d_70%,transparent_100%)]"></div>
 
     <header id="header" class="w-full sm:px-6">
       <div class="mx-auto" style="max-width: 54rem;">
         <nav class="flex items-center justify-between py-4 sm:py-6 px-4">
           <!-- Luna a la izquierda -->
           <button onclick="ChangeColors()" class="flex-shrink-0">
-            <svg
-              class="w-8 h-8 light_mode_moon"
-              viewBox="0 0 1024 1024"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              id="moonicon"
-              stroke="currentColor"
-              stroke-width="27.648000000000003"
-            >
-              <path
-                d="M240.448 240.448a384 384 0 1 0 559.424 525.696 448 448 0 0 1-542.016-542.08 390.592 390.592 0 0 0-17.408 16.384zm181.056 362.048a384 384 0 0 0 525.632 16.384A448 448 0 1 1 405.056 76.8a384 384 0 0 0 16.448 525.696z"
-              >
-              </path>
+            <svg class="w-8 h-8 light_mode_moon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="moonicon" stroke="currentColor" stroke-width="27.648000000000003">
+              <path d="M240.448 240.448a384 384 0 1 0 559.424 525.696 448 448 0 0 1-542.016-542.08 390.592 390.592 0 0 0-17.408 16.384zm181.056 362.048a384 384 0 0 0 525.632 16.384A448 448 0 1 1 405.056 76.8a384 384 0 0 0 16.448 525.696z"> </path>
             </svg>
           </button>
 
           <!-- Menú a la derecha -->
-          <ul
-            class="hidden sm:flex sm:flex-row sm:gap-x-8 lg:gap-x-14 text-[#0d0d0d] items-center"
-            id="nav"
-          >
+          <ul class="hidden sm:flex sm:flex-row sm:gap-x-8 lg:gap-x-14 text-[#0d0d0d] items-center" id="nav">
             <li>
-              <a
-                href="/"
-                id="aboutme"
-                class="transition-colors light_mode_ul_header "
-                >Sobre mí</a
-              >
+              <a href="/" id="aboutme" class="transition-colors light_mode_ul_header">Sobre mí</a>
             </li>
             <li>
-              <a
-                href="/Articulos"
-                id="articles"
-                class="transition-colors light_mode_ul_header current_light">Artículos</a
-              >
+              <a href="/Articulos" id="articles" class="transition-colors light_mode_ul_header current_light">Artículos</a>
             </li>
             <li>
-              <a
-                href="/Contacto"
-                id="contact"
-                class="transition-colors light_mode_ul_header ">Contacto</a
-              >
+              <a href="/Contacto" id="contact" class="transition-colors light_mode_ul_header">Contacto</a>
             </li>
           </ul>
 
           <!-- Menú hamburguesa para móviles -->
-          <button
-            class="sm:hidden"
-            aria-label="Abrir menú"
-            onclick="toggleMobileMenu()"
-          >
-            <svg
-              class="w-6 h-6 light_hamburger"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              id="hamburger_menu"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"></path>
+          <button class="sm:hidden" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+            <svg class="w-6 h-6 light_hamburger" stroke="currentColor" viewBox="0 0 24 24" id="hamburger_menu" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
           </button>
         </nav>
 
         <!-- Menú móvil -->
         <div id="mobileMenu" class="hidden sm:hidden">
-          <ul
-            class="flex flex-col text-[#e7e7e7] bg-[#0000009d] absolute z-10 w-full backdrop-blur"
-          >
+          <ul class="flex flex-col text-[#e7e7e7] bg-[#0000009d] absolute z-10 w-full backdrop-blur">
             <li>
-              <a
-                href="/"
-                class="block light_mode_ul_header transition-colors py-4 text-center border-b "
-                id="aboutme_mobile">Sobre mí</a
-              >
+              <a href="/" class="block light_mode_ul_header transition-colors py-4 text-center border-b" id="aboutme_mobile">Sobre mí</a>
             </li>
             <li>
-              <a
-                href="/Articulos"
-                class="block light_mode_ul_header transition-colors py-4 text-center border-b current_mobile_light"
-                id="articles_mobile">Artículos</a
-              >
+              <a href="/Articulos" class="block light_mode_ul_header transition-colors py-4 text-center border-b current_mobile_light" id="articles_mobile">Artículos</a>
             </li>
             <li>
-              <a
-                href="/Contacto"
-                class="block light_mode_ul_header transition-colors py-4 text-center "
-                id="contact_mobile">Contacto</a
-              >
+              <a href="/Contacto" class="block light_mode_ul_header transition-colors py-4 text-center" id="contact_mobile">Contacto</a>
             </li>
           </ul>
         </div>
@@ -237,10 +180,10 @@ import "../Styles/global.css";
         mobileMenu.classList.toggle("hidden");
       }
     </script>
-  <main class="max-w-4xl m-auto mt-16">
-    <div class="ml-6 mr-6"></div>
-  </main>
-  <script is:inline>
+    <main class="max-w-4xl m-auto mt-16">
+      <div class="ml-6 mr-6"></div>
+    </main>
+    <script is:inline>
       const background = document.getElementById("background");
       const dottedbg = document.getElementById("dottedbackground");
       const moonicon = document.getElementById("moonicon");
@@ -255,111 +198,106 @@ import "../Styles/global.css";
 
       const mobileMenu = document.getElementById("hamburger_menu");
 
-    window.onload = function () {
-      const savedTheme = localStorage.getItem("theme");
+      window.onload = function () {
+        const savedTheme = localStorage.getItem("theme");
 
-      if (savedTheme === "dark") {
-        body_dark(); // Aplicar tema oscuro
-        isOriginalColor = false; // Asegurarse de que el botón funcione correctamente
-      } else {
-        body_light(); // Aplicar tema claro
-        isOriginalColor = true; // Asegurarse de que el botón funcione correctamente
-      }
-    };
+        if (savedTheme === "dark") {
+          body_dark(); // Aplicar tema oscuro
+          isOriginalColor = false; // Asegurarse de que el botón funcione correctamente
+        } else {
+          body_light(); // Aplicar tema claro
+          isOriginalColor = true; // Asegurarse de que el botón funcione correctamente
+        }
+      };
 
-    function body_dark() {
-        
-      const current_mobile_light = Array.from(
-            document.getElementsByClassName("current_mobile_light")
-          );
-          background.classList.remove("bg_light");
-          background.classList.add("bg_dark");
+      function body_dark() {
+        const current_mobile_light = Array.from(document.getElementsByClassName("current_mobile_light"));
+        background.classList.remove("bg_light");
+        background.classList.add("bg_dark");
 
-          dottedbg.classList.remove("bg_light_dotted");
-          dottedbg.classList.add("bg_dark_dotted");
+        dottedbg.classList.remove("bg_light_dotted");
+        dottedbg.classList.add("bg_dark_dotted");
 
-          moonicon.classList.add("dark_mode_moon");
-          moonicon.classList.remove("light_mode_moon");
-          nav.style.color = "#e7e7e7";
+        moonicon.classList.add("dark_mode_moon");
+        moonicon.classList.remove("light_mode_moon");
+        nav.style.color = "#e7e7e7";
 
-          articles.classList.add("current_dark");
-          aboutme.classList.add("dark_mode_ul_header");
-          contact.classList.add("dark_mode_ul_header");
+        articles.classList.add("current_dark");
+        aboutme.classList.add("dark_mode_ul_header");
+        contact.classList.add("dark_mode_ul_header");
 
-          aboutme_mobile.classList.add("dark_mode_ul_header");
-          articles_mobile.classList.add("dark_mode_ul_header");
-          contact_mobile.classList.add("dark_mode_ul_header");
+        aboutme_mobile.classList.add("dark_mode_ul_header");
+        articles_mobile.classList.add("dark_mode_ul_header");
+        contact_mobile.classList.add("dark_mode_ul_header");
 
-          articles.classList.remove("current_light");
-          aboutme.classList.remove("light_mode_ul_header");
-          contact.classList.remove("light_mode_ul_header");
+        articles.classList.remove("current_light");
+        aboutme.classList.remove("light_mode_ul_header");
+        contact.classList.remove("light_mode_ul_header");
 
-          aboutme_mobile.classList.remove("light_mode_ul_header");
-          articles_mobile.classList.remove("light_mode_ul_header");
-          contact_mobile.classList.remove("light_mode_ul_header");
+        aboutme_mobile.classList.remove("light_mode_ul_header");
+        articles_mobile.classList.remove("light_mode_ul_header");
+        contact_mobile.classList.remove("light_mode_ul_header");
 
-          mobileMenu.classList.add("dark_hamburger");
-          mobileMenu.classList.remove("light_hamburger");
+        mobileMenu.classList.add("dark_hamburger");
+        mobileMenu.classList.remove("light_hamburger");
 
-          for (let current_mobile_l of current_mobile_light) {
-            current_mobile_l.classList.add("current_mobile_dark");
-            current_mobile_l.classList.remove("current_mobile_light");
-          }
-    }
-
-    function body_light() {
-      const current_mobile_dark = Array.from(
-            document.getElementsByClassName("current_mobile_dark")
-          );
-          background.classList.remove("bg_dark");
-          background.classList.add("bg_light");
-
-          dottedbg.classList.remove("bg_dark_dotted");
-          dottedbg.classList.add("bg_light_dotted");
-
-          moonicon.classList.add("light_mode_moon");
-          moonicon.classList.remove("dark_mode_moon");
-          nav.style.color = "#0d0d0d";
-
-          articles.classList.remove("current_dark");
-          aboutme.classList.remove("dark_mode_ul_header");
-          contact.classList.remove("dark_mode_ul_header");
-
-          aboutme_mobile.classList.remove("dark_mode_ul_header");
-          articles_mobile.classList.remove("dark_mode_ul_header");
-          contact_mobile.classList.remove("dark_mode_ul_header");
-
-          articles.classList.add("current_light");
-          aboutme.classList.add("light_mode_ul_header");
-          contact.classList.add("light_mode_ul_header");
-
-          aboutme_mobile.classList.add("light_mode_ul_header");
-          articles_mobile.classList.add("light_mode_ul_header");
-          contact_mobile.classList.add("light_mode_ul_header");
-
-          mobileMenu.classList.remove("dark_hamburger");
-          mobileMenu.classList.add("light_hamburger");
-
-          for (let current_mobile_d of current_mobile_dark) {
-            current_mobile_d.classList.remove("current_mobile_dark");
-            current_mobile_d.classList.add("current_mobile_light");
-          }
-    }
-
-    let isOriginalColor = true;
-    function ChangeColors() {
-    
-      if (isOriginalColor) {
-        localStorage.setItem("theme", "dark");
-
-        body_dark();
-      } else {
-        localStorage.setItem("theme", "light");
-
-        body_light();
+        for (let current_mobile_l of current_mobile_light) {
+          current_mobile_l.classList.add("current_mobile_dark");
+          current_mobile_l.classList.remove("current_mobile_light");
+        }
       }
 
-      isOriginalColor = !isOriginalColor;
-    }
-  </script>
+      function body_light() {
+        const current_mobile_dark = Array.from(document.getElementsByClassName("current_mobile_dark"));
+        background.classList.remove("bg_dark");
+        background.classList.add("bg_light");
+
+        dottedbg.classList.remove("bg_dark_dotted");
+        dottedbg.classList.add("bg_light_dotted");
+
+        moonicon.classList.add("light_mode_moon");
+        moonicon.classList.remove("dark_mode_moon");
+        nav.style.color = "#0d0d0d";
+
+        articles.classList.remove("current_dark");
+        aboutme.classList.remove("dark_mode_ul_header");
+        contact.classList.remove("dark_mode_ul_header");
+
+        aboutme_mobile.classList.remove("dark_mode_ul_header");
+        articles_mobile.classList.remove("dark_mode_ul_header");
+        contact_mobile.classList.remove("dark_mode_ul_header");
+
+        articles.classList.add("current_light");
+        aboutme.classList.add("light_mode_ul_header");
+        contact.classList.add("light_mode_ul_header");
+
+        aboutme_mobile.classList.add("light_mode_ul_header");
+        articles_mobile.classList.add("light_mode_ul_header");
+        contact_mobile.classList.add("light_mode_ul_header");
+
+        mobileMenu.classList.remove("dark_hamburger");
+        mobileMenu.classList.add("light_hamburger");
+
+        for (let current_mobile_d of current_mobile_dark) {
+          current_mobile_d.classList.remove("current_mobile_dark");
+          current_mobile_d.classList.add("current_mobile_light");
+        }
+      }
+
+      let isOriginalColor = true;
+      function ChangeColors() {
+        if (isOriginalColor) {
+          localStorage.setItem("theme", "dark");
+
+          body_dark();
+        } else {
+          localStorage.setItem("theme", "light");
+
+          body_light();
+        }
+
+        isOriginalColor = !isOriginalColor;
+      }
+    </script>
+  </body>
 </html>
