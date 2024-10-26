@@ -3,7 +3,7 @@
 ¡Bienvenido a mi portfolio personal! Este sitio web, construido con Astro, destaca mi experiencia, habilidades y algunos de los proyectos más representativos en los que he trabajado. Puedes explorar los detalles sobre mi trayectoria y proyectos a continuación.
 
 
-<img src="https://github.com/user-attachments/assets/a987b140-1fd2-4e73-a7f0-afbaa37ba648">
+<img src="https://github.com/user-attachments/assets/14e8cec0-6833-4e82-8574-d1702f010f3c">
 
 
 ## 🖥️ Tecnologías Utilizadas
