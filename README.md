@@ -5,30 +5,28 @@
 
 Este portfolio fue desarrollado utilizando las siguientes tecnologías:
 
-    Astro - Framework para desarrollo de sitios web estáticos.
-    HTML, CSS, JS - Lenguajes principales para la estructura, estilo e interactividad.
-    Tailwind CSS - Librería de utilidades CSS para estilizar el proyecto de forma eficiente.
-    Python y Java - Lenguajes de programación para proyectos específicos.
-    PHP - Usado en algunos proyectos para manejo de backend y lógica del servidor.
+* Astro - Framework para desarrollo de sitios web estáticos.
+* HTML, CSS, JS - Lenguajes principales para la estructura, estilo e interactividad.
+* Tailwind CSS - Librería de utilidades CSS para estilizar el proyecto de forma eficiente.
 
 ## 🚀 Estructura de la Página
 Páginas y Componentes
 
-    Header y Navegación: Barra de navegación con enlaces a secciones clave como Sobre mí y Contacto, con alternancia de modo claro/oscuro.
-    Timeline: Resumen de experiencias profesionales y académicas, que incluye:
-        Clases particulares de programación.
-        Estudios en Administración de Sistemas Informáticos en Red.
-        Experiencia en roles de mantenimiento y conserjería.
-    ProjectCard: Galería de proyectos, cada uno con imagen, enlace a GitHub y, cuando está disponible, enlace a una vista en vivo.
-    Footer: Enlaces a redes sociales y contacto.
-    Skills: Lista de habilidades en programación y tecnologías utilizadas.
+* Header y Navegación: Barra de navegación con enlaces a secciones clave como Sobre mí y Contacto, con alternancia de modo claro/oscuro.
+* Timeline: Resumen de experiencias profesionales y académicas, que incluye:
+   * Clases particulares de programación.
+   * Estudios en Administración de Sistemas Informáticos en Red.
+   * Experiencia en roles de mantenimiento y conserjería.
+* ProjectCard: Galería de proyectos, cada uno con imagen, enlace a GitHub y, cuando está disponible, enlace a una vista en vivo.
+* Footer: Enlaces a redes sociales y contacto.
+* Skills: Lista de habilidades en programación y tecnologías utilizadas.
 
 ## Proyectos Destacados
 
 Aquí algunos de los proyectos incluidos en mi portfolio:
 
-    Bastardos - Juego con mecánicas únicas, disponible en GitHub y Demo en vivo.
-    Portfolio Personal - Este mismo portfolio, disponible en GitHub.
-    Overview Moscas - Proyecto de estudio sobre control de plagas, accesible en GitHub.
+Bastardos - Juego con mecánicas únicas, disponible en GitHub y Demo en vivo.
+Portfolio Personal - Este mismo portfolio, disponible en GitHub.
+Overview Moscas - Proyecto de estudio sobre control de plagas, accesible en GitHub.
 
 ## 📜 Scripts de Configuración
