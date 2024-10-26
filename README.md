@@ -47,10 +47,11 @@ Instala las dependencias:
 npm install
 ```
 
+```bash
+npm run dev
+```
+
 ## 📬 Contacto
 Puedes contactarme a través de LinkedIn o directamente en la sección de contacto en mi portfolio.
 
 Inicia el servidor de desarrollo:
-```bash
-npm run dev
-```
