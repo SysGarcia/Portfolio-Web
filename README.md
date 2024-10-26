@@ -30,3 +30,19 @@ Portfolio Personal - Este mismo portfolio, disponible en GitHub.
 Overview Moscas - Proyecto de estudio sobre control de plagas, accesible en GitHub.
 
 ## 📜 Scripts de Configuración
+Para ejecutar el proyecto localmente:
+
+Clona el repositorio:
+```bash
+git clone https://github.com/Wolfuliam/iker-portfolio.git
+```
+
+Instala las dependencias:
+```bash
+npm install
+```
+
+Inicia el servidor de desarrollo:
+```bash
+npm run dev
+```
