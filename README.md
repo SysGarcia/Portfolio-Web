@@ -53,4 +53,4 @@ npm run dev
 ```
 
 ## 📬 Contacto
-Puedes contactarme a través de <a href="https://www.linkedin.com/in/isaac-garc%C3%ADa-dur%C3%A1n-379121310/">LinkedIn </a> o directamente en la sección de contacto en mi portfolio.
+Puedes contactarme a través de <a href="https://www.linkedin.com/in/isaac-garc%C3%ADa-dur%C3%A1n-379121310/">LinkedIn</a> o directamente en la sección de contacto en mi portfolio.
