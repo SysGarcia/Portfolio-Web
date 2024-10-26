@@ -25,8 +25,8 @@ Páginas y Componentes
 
 Aquí algunos de los proyectos incluidos en mi portfolio:
 
-Bastardos - Juego con mecánicas únicas, disponible en GitHub y Demo en vivo.
-Portfolio Personal - Este mismo portfolio, disponible en GitHub.
+Bastardos - Página web de la seria Bastardos, disponible en GitHub y Demo en vivo.
+Portfolio Personal - Un portfolio creado para un particular, disponible en GitHub.
 Overview Moscas - Proyecto de estudio sobre control de plagas, accesible en GitHub.
 
 ## 📜 Scripts de Configuración
